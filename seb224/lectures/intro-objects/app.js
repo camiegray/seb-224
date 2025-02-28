@@ -4,10 +4,11 @@ const music = {
     volume: 70,
 
     mute() {
-      music.volume = 0;
+      this.volume = 0;
     },
     next() {
-      music.trackIdx += 1;
+      this.trackIdx += 1;
+      this.currentTrack = this.currentPlaylist[this.trackIdx];
     },
   }
   music.currentPlaylist = [
@@ -17,7 +18,7 @@ const music = {
       album: 'Barbie The Album',
       length: '3:43',
     }, {
-      title: 'Hey Blondie',dd
+      title: 'Hey Blondie',
       artist: 'Dominic Fike',
       album: 'Barbie The Album',
       length: '2:21',
