@@ -173,10 +173,10 @@ Solve Exercise 12 here:
 */
 
 for (let n = 0; n < game.gyms.length; n++) {
-    if (game.gyms[n].difficulty <= 5) {
-      game.gyms[n].completed = true;
-    }
+  if (game.gyms[n].difficulty <= 5) {
+    game.gyms[n].completed = true;
   }
+}
 //   console.log(game.gyms);
 
 /*
@@ -220,8 +220,6 @@ game.gymStatus = function tallyT() {
 
 // console.log(game.gymStatus());
 
-
-
 /*
 Exercise 14
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
@@ -234,20 +232,15 @@ This method should:
 Solve Exercise 14 here:
 */
 
-
 game.partycount = function pokeCount() {
-   let numberOfPoke = 0
+  let numberOfPoke = 0;
 
-game.party.forEach(() => {
-    
-        numberOfPoke+=1
-})
-return numberOfPoke
-}
+  game.party.forEach(() => {
+    numberOfPoke += 1;
+  });
+  return numberOfPoke;
+};
 // console.log(game.partycount())
-
-
-
 
 /*
 Exercise 15
@@ -258,13 +251,20 @@ Solve Exercise 15 here:
 */
 
 for (let o = 0; o < game.gyms.length; o++) {
-    if (game.gyms[o].difficulty <= 7) {
-      game.gyms[o].completed = true;
-    }
+  if (game.gyms[o].difficulty <= 7) {
+    game.gyms[o].completed = true;
   }
-  console.log(game.gyms);
-  console.log(game.gymStatus());
-  console.log(game.partycount())
+}
+
+
+
+
+
+
 console.log(game)
 
-  
+console.log(game.gyms);
+console.log(game.gymStatus());
+console.log(game.partycount());
+console.log(game.items[1])
+
