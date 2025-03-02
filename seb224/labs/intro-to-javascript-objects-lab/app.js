@@ -71,7 +71,7 @@ for (let i = 0; i < game.gyms.length; i++) {
     game.gyms[i].completed = true;
   }
 }
-console.log(game.gyms);
+// console.log(game.gyms);
 
 /*
 Exercise 7
@@ -160,9 +160,9 @@ game.catchPokemon = function (pokemonObj) {
 
 game.catchPokemon(pokemon[75]);
 
-console.log(game.party);
+// console.log(game.party);
 
-console.log(game.items);
+// console.log(game.items);
 
 /*
 Exercise 12
@@ -173,11 +173,11 @@ Solve Exercise 12 here:
 */
 
 for (let n = 0; n < game.gyms.length; n++) {
-  if (game.gyms[n].difficulty <= 5) {
-    game.gyms[n].completed = true;
+    if (game.gyms[n].difficulty <= 5) {
+      game.gyms[n].completed = true;
+    }
   }
-}
-console.log(game.gyms);
+//   console.log(game.gyms);
 
 /*
 Exercise 13
@@ -218,24 +218,53 @@ game.gymStatus = function tallyT() {
   return gymTally;
 };
 
-console.log(game.gymStatus());
+// console.log(game.gymStatus());
 
-//  game.gymStatus = function tallyT() {
 
-//     const gymTally = {
-//         complete: 0,
-//         incomplete: 0
-//     };
 
-// let pp=0
-//     for (pp = 0; pp < game.gyms.length; pp++) {
-//         if (game.gyms.complete === true) {
-//             gymTally.complete += 1;
-//         } else {
-//             gymTally.incomplete += 1;
-//         }
-//     };
+/*
+Exercise 14
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
 
-// }
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
 
-//  console.log(game.gymStatus)
+Solve Exercise 14 here:
+*/
+
+
+game.partycount = function pokeCount() {
+   let numberOfPoke = 0
+
+game.party.forEach(() => {
+    
+        numberOfPoke+=1
+})
+return numberOfPoke
+}
+// console.log(game.partycount())
+
+
+
+
+/*
+Exercise 15
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 15 here:
+*/
+
+for (let o = 0; o < game.gyms.length; o++) {
+    if (game.gyms[o].difficulty <= 7) {
+      game.gyms[o].completed = true;
+    }
+  }
+  console.log(game.gyms);
+  console.log(game.gymStatus());
+  console.log(game.partycount())
+console.log(game)
+
+  
