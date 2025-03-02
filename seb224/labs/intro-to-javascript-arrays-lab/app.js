@@ -1,12 +1,11 @@
-/*
-Exercise 1: Define an empty array
 
-1) Create an empty array and assign it to a variable called `foods`.
 
-Exercise 1 has been completed for you:
-*/
+const foods = ["pizza", "cheeseburger"];  
+foods.unshift("taco")
 
-const foods = [];  
 
+let favFood=foods[1]
+foods.splice()
 console.log('Exercise 1 result:', foods);
-n
+console.log("Exercise 4 results:", favFood);
+console.log('Exercise 5 result:', foods);
