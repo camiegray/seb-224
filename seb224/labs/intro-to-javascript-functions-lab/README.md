@@ -1,0 +1,1 @@
+This is the Intro to Javascript functions lab with completed assignments.
