@@ -102,7 +102,6 @@ function isCharAVowel2(char2) {
 }
 console.log("Exercise 3.2 Result:", isCharAVowel2("b"));
 
-//
 // Exercise 4: generateEmail()
 
 // Create a function named generateEmail. It should take two strings:
@@ -111,13 +110,14 @@ console.log("Exercise 3.2 Result:", isCharAVowel2("b"));
 // Example: generateEmail('johnsmith', 'example.com')
 // should return 'johnsmith@example.com'.
 
-// Complete the exercise in the space below:
-// */
+function generateEmail(name, domain) {
+  // let x = name
+  // let y = domain
+  return name + "@" + domain;
+}
+console.log("Exercise 4 Result:", generateEmail("johnsmith", "example.com"));
 
-// console.log('Exercise 4 Result:', generateEmail("johnsmith", "example.com"));
-
-// /*
-// Exercise 5: greetUser()
+//  Exercise 5: greetUser()
 
 // Define a function called greetUser. It should take a name and a
 // time of day (morning, afternoon, evening) and return a personalized
@@ -125,55 +125,61 @@ console.log("Exercise 3.2 Result:", isCharAVowel2("b"));
 
 // Example: greetUser('Sam', 'morning') should return "Good morning, Sam!"
 
-// Complete the exercise in the space below:
-// */
+function greetUser(name, tod) {
+  return "Good " + tod + " " + name;
+}
 
-// console.log('Exercise 5 Result:', greetUser("Sam", "morning"));
+console.log("Exercise 5 Result:", greetUser("Sam", "morning"));
 
-// /*
 // Exercise 6: maxOfThree()
 
 // Define a function, maxOfThree. It should accept three numbers
 // and return the largest among them.
 
-// Example: maxOfThree(17, 4, 9) should return 17.
+function maxOfThree(...numbers) {
+  return Math.max(...numbers);
+}
 
-// Complete the exercise in the space below:
-// */
+console.log("Exercise 6 Result:", maxOfThree(5, 10, 8));
 
-// console.log('Exercise 6 Result:', maxOfThree(5, 10, 8));
+function maxOfTree(a, b, c) {
+  return Math.max(a, b, c);
+}
 
-// /*
+console.log("Exercise 6.1 Result:", maxOfTree(5, 10, 8));
+
 // Exercise 7: calculateTip()
 
 // Create a function called calculateTip. It should take two arguments:
 // the bill amount and the tip percentage (as a whole number).
 // The function should return the amount of the tip.
 
-// Example: calculateTip(50, 20) should return 10.
+function calculateTip(bill, tip) {
+  // let tipPercentage = tip/=100
+  // return bill*=tipPercentage
+  return (bill *= tip /= 100);
+}
 
-// Complete the exercise in the space below:
-// */
+console.log("Exercise 7 Result:", calculateTip(50, 20));
 
-// console.log('Exercise 7 Result:', calculateTip(50, 20));
-
-// /*
 // Exercise 8: convertTemperature()
-
 // Write a function named convertTemperature.
 // It takes two arguments: a temperature and a string representing the
 // scale ('C' for Celsius, 'F' for Fahrenheit).
 // Convert the temperature to the other scale.
 
-// Example: convertTemperature(32, 'C') should return 89.6 (Fahrenheit).
-// Example: convertTemperature(32, 'F') should return 0 (Celsius).
+function convertTemperature(temp, scale) {
+  if (scale === "F") {
+    results = ((temp - 32) * 5) / 9;
+  } else {
+    results = (temp * 9) / 5 + 32;
+  }
+  return results.toFixed(2) + " degrees";
+}
 
-// Complete the exercise in the space below:
-// */
+console.log("Exercise 8 Result:", convertTemperature(32, "C"));
+console.log("Exercise 8.1 Result:", convertTemperature(56, "F"));
 
-// console.log('Exercise 8 Result:', convertTemperature(32, "C"));
-
-// /*
 // Exercise 9: basicCalculator()
 
 // Create a function named basicCalculator.
@@ -184,9 +190,28 @@ console.log("Exercise 3.2 Result:", isCharAVowel2("b"));
 // treat the first parameter as the first operand and the
 // second parameter as the second operand.
 
-// Example: basicCalculator(10, 5, 'subtract') should return 5.
+function basicCalculator(num1, num2, string1) {
+  let ops = {
+    add: function (a, b) {
+      return a + b;
+    },
+    subtract: function (a, b) {
+      return a - b;
+    },
+    multiply: function (a, b) {
+      return a * b;
+    },
+    divide: function (a, b) {
+      return a / b;
+    },
+  };
+  if (ops[string1]) {
+    return ops[string1](num1, num2);
+  }
+}
 
-// Complete the exercise in the space below:
-// */
+console.log("Exercise 9 Result:", basicCalculator(10, 5, "subtract"));
 
-// console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
+
+
+console.log("I did use chatgpt but only to explain things and check my work. The last one stumped me so chat gpt gave me some really good ideas and i can recreate it at anytime")
