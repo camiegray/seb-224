@@ -43,7 +43,7 @@ Solve Exercise 4 here:
 */
 
 game.party.unshift(pokemon[6]);
-console.log(game.party[0]);
+// console.log(game.party[0]);
 
 /*
 Exercise 5
@@ -55,7 +55,7 @@ Solve Exercise 5 here:
 */
 
 game.party.push(pokemon[17], pokemon[148], pokemon[64]);
-console.log(game.party);
+// console.log(game.party);
 
 /*
 Exercise 6
@@ -67,11 +67,11 @@ Solve Exercise 6 here:
 */
 
 for (let i = 0; i < game.gyms.length; i++) {
-  if (game.gyms[i].difficulty <= 2) {
-    game.gyms[i].completed = true;
+    if (game.gyms[i].difficulty <= 2) {
+      game.gyms[i].completed = true;
+    }
   }
-}
-console.log(game.gyms);
+  console.log(game.gyms);
 
 /*
 Exercise 7
@@ -93,7 +93,7 @@ Solve Exercise 7 here:
 game.party.shift(pokemon[6]);
 
 game.party.unshift(pokemon[7]);
-    console.log(game.party);
+    // console.log(game.party);
 
 
     /*
@@ -123,3 +123,149 @@ pokemon.forEach(pokemon => {
     if (pokemon.starter === true)
     console.log(pokemon.name)
 })
+
+/*
+Exercise 10
+Create a method called `catchPokemon` and add it to the `game` object. You should not need to edit the original game object directly. This method should:
+  - Accept an object as a parameter called `pokemonObj`
+  - Add the `pokemonObj` to the `game.party` array.
+  - not return anything
+
+After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+
+Solve Exercise 10 here:
+*/
+game.catchPokemon = function(pokemonObj) {
+    game.party.push(pokemonObj) }
+
+    game.catchPokemon(pokemon[130])
+
+// console.log(game.party)
+
+/*
+Exercise 11
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that
+ it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+2. How will you find and update the quantity of pokeballs in the `game.items` array?
+
+Tips:
+For this exercise, it's okay to have a negative number of pokeballs.
+After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 11 here:
+*/
+
+game.catchPokemon = function(pokemonObj) {
+    game.party.push(pokemonObj);
+     game.items[1].quantity-=1 
+}
+
+game.catchPokemon(pokemon[75])
+
+
+console.log(game.party)
+
+console.log(game.items)
+
+
+
+/*
+Exercise 12
+1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 12 here:
+*/
+
+
+for (let n = 0; n < game.gyms.length; n++) {
+    if (game.gyms[n].difficulty <= 5) {
+      game.gyms[n].completed = true;
+    }
+  }
+  console.log(game.gyms);
+
+
+
+
+  /*
+Exercise 13
+1. Create a `gymStatus` method in `game` to tally completed and incomplete gyms.
+2. How will you iterate through the `gyms` array and update the tally? Remember to log the final tally.
+
+This method should:
+  - Not accept any arguments.
+  - Initially create a constant `gymTally`, which is an object that has two 
+    properties: `completed` and `incomplete`, both of which are initially set to 0.
+  - Iterate through the objects in the `game.gyms` array and update the 
+    properties on `gymTally` as follows: 
+    - `completed` should count how many gyms in the array have a value of `true` 
+      for their `completed` property. 
+    - `incomplete` should count how many gyms in the array have a value of 
+      `false` for their `completed` property.
+  - Log the value of `gymTally`.
+  - The method should not return anything.
+
+For example, if five gym objects have a value of `true` on their `completed` property and three gym objects have a value of `false` on their `completed` property, the logged value would be: `{ completed: 5, incomplete: 3 }`.
+
+Solve Exercise 13 here:
+*/
+game.gymStatus = function tallyT() {
+
+    const gymTally = {
+        completed: 0,
+        incomplete: 0
+    };
+
+let pp=0
+    for (pp = 0; pp < game.gyms.length; pp++) {
+        if (game.gyms.completed === true) {
+            gymTally.completed += 1; 
+        } else {
+            gymTally.incomplete += 1;  
+        }
+    };
+    return gymTally
+  
+}
+
+    
+ 
+
+console.log(game.gymStatus());
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  game.gymStatus = function tallyT() {
+
+//     const gymTally = {
+//         complete: 0,
+//         incomplete: 0
+//     };
+
+// let pp=0
+//     for (pp = 0; pp < game.gyms.length; pp++) {
+//         if (game.gyms.complete === true) {
+//             gymTally.complete += 1; 
+//         } else {
+//             gymTally.incomplete += 1;  
+//         }
+//     };
+
+  
+// }
+
+    
+//  console.log(game.gymStatus)
+
