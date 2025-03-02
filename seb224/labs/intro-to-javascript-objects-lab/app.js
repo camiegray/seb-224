@@ -220,7 +220,7 @@ game.gymStatus = function tallyT() {
 
 let pp=0
     for (pp = 0; pp < game.gyms.length; pp++) {
-        if (game.gyms.completed === true) {
+        if (game.gyms[pp].completed === true) {
             gymTally.completed += 1; 
         } else {
             gymTally.incomplete += 1;  
