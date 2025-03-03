@@ -241,11 +241,12 @@ Hint: Be sure to declare and initialize the total variable before the iterations
 Complete Exercise 15 in the space below:
 */
 
-let total = numArrays.forEach(numArray => {total += num)
-    
-
-
+let total = 0
+numArrays.forEach(numArray => {  numArray.forEach(num => { total +=num 
 
 })
+})    
+
+
 
 console.log('Exercise 15 result:\n', total);
