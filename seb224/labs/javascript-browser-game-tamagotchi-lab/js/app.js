@@ -36,10 +36,4 @@ const sleepButton
 consg feedButton
 
 const resetButton =
-const gameMessage = 
-
-
-
-
-
-
+const gameMessage = = 
