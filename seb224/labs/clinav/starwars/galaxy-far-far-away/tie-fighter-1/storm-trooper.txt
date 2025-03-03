@@ -1,4 +1,10 @@
 <<<<<<< HEAD
 f                    Darth Vader is evil hahahahahahacrazycrazy 
 maybe he will win
+<<<<<<< HEAD
 f                    Darth Vader is evil hahahahahahacrazy
+=======
+=======
+f                    Darth Vader is evil hahahahahahacrazy
+>>>>>>> 77ab1e43bb6308a59df2ed9289fec11157969c4a
+>>>>>>> 626dcd2b7d0ef460dc4981d9bb1079208aad2658
