@@ -28,7 +28,11 @@ let gameover
 
 const boredomStat =
 const hungerStat =
+<<<<<<< HEAD
 const sleepinessStat 
+=======
+const sleepinessStat =
+>>>>>>> 3d21dd68887f9afa2d869ee352a4c40fa446e92
 
 const playButton =
 const sleepButton
