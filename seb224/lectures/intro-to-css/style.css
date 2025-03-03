@@ -1,0 +1,104 @@
+
+html {
+
+    background-image: linear-gradient(to right, lightsteelblue, lightgreen); 
+    font-family: fantasy;
+}
+
+body h1 {
+    display: block;
+    color:blueviolet;
+    text-align: center;
+    font-size: 50px;
+    border: 4px solid;
+    border-radius: 40px;
+    background-color: paleturquoise;
+    padding: 10px;
+}
+body {
+    text-align: center ;
+    margin: 0;
+}
+div {
+    color: blue;
+
+}
+ul {
+    margin: 0;
+
+
+}
+#comments {
+    text-align: justify;
+    display: inline;
+    color: blue;
+}
+#comments h2 {
+    text-align: center;
+    color: darkslateblue;
+    font-size: 50px;
+    letter-spacing: 5px;
+    border: 5px solid;
+    display: block;
+    border-radius: 60px;
+    padding: 10px;
+    border-top-width: 2px;
+    border-bottom-width: 8px;
+    border-color: coral;
+    background-color: darkkhaki;
+
+}
+#about {
+    text-align: left;
+}
+.super-cool {
+    text-align: center;
+    padding: 3px;
+    border-color: yellowgreen;
+    border-radius: 3px;
+    background-color: fuchsia;
+    display: inline;
+}
+
+button {
+    border: 10px solid;
+    background-color:darkcyan;
+    border-radius: 100px;
+    padding: 25px;
+    font-weight:bolder;
+    font-size: 30px;
+
+
+}
+div {
+    display: inline;
+    border: 3px solid;
+    border-radius: 3px;
+}
+footer {
+    display: inline;
+    
+    border: 20px solid;
+    background-color: lightcoral;
+    font-size: 40px;
+    font-weight: 700;
+    border-color: lightsteelblue;
+    font-size: 30px;
+    border-width: thick;
+
+    border-radius: 40px;
+    padding: 30px;
+    
+}   
+
+a {
+    border: 7px solid;
+   border-radius: 15px;
+    font-display: block;
+    font-size: 30px;
+    background-color: aliceblue;
+    border-color: yellow;
+    border-right-color: blueviolet;
+    border-left-color: blueviolet;
+    padding: 10px;
+}
