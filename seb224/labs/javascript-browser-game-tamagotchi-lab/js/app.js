@@ -26,13 +26,13 @@ let timer
 let gameover
 
 
-const boredomStat =
-const hungerStat =
-const sleepinessStat =
+const boredomBtn = document.createElement("boredom-btn").addEventListener("click")
+const hungerBtn = document.createElement("hunger-btn").addEventListener("click")
+const sleepinessBtn = document.createElement("sleepiness-btn").addEventListener("click")
 
-const playButton =
-const sleepButton =
-const feedButton =
+const playBtn = document.createElement("play-btn").addEventListener("click")
+const sleepBtn = document.createElement("sleep-btn").addEventListener("click")
+const feedBtn = document.createElement("feed-btn").addEventListener("click")
 
-const resetButton =
-const gameMessage = 
+const resetBtn = document.createElement("reset-btn").addEventListener("click")
+const gameMesage = document.createElement("game-message").addEventListener("click")

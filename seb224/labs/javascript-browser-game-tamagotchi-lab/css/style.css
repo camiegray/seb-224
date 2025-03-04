@@ -2,11 +2,15 @@
 * {
     box-sizing: border-box;
   }
+
   
   body {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     font-size: 16px;
     min-height: 100vh;
-    background-color: #e6e6e6;
+
     font-family: system-ui, sans-serif;
   }
   
@@ -22,6 +26,7 @@
   /* headings */
   header {
     text-align: center;
+
   }
   
   /* layout */
@@ -50,6 +55,27 @@
   
   /* button styling*/
   button {
+    
+    background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4  51%, #E55D87  100%);
+
+       margin: 10px;
+       padding: 15px 45px;
+       text-align: center;
+       text-transform: uppercase;
+       transition: 0.5s;
+       background-size: 200% auto;
+       color: white;            
+       box-shadow: 0 0 20px #eee;
+       border-radius: 10px;
+       display: block;
+     }
+
+     .btn-grad:hover {
+       background-position: right center; /* change the direction of the change here */
+       color: #fff;
+       text-decoration: none;
+     }
+    
     padding: 1.5rem;
     line-height: 1em;
     font-size: 1.5rem;
