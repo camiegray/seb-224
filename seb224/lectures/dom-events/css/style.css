@@ -1,0 +1,21 @@
+
+html {
+    background-image: linear-gradient(to right, aquamarine, darkslategrey);
+}
+
+
+body {
+    font-family: system-ui, sans-serif;
+  
+  }
+  
+  div {
+    
+    background-image: linear-gradient(to bottom, aquamarine, green)
+    /* This makes the width of the div the width required by its content! */
+  }
+  
+  button {
+    margin: 8px;
+  }
+  
