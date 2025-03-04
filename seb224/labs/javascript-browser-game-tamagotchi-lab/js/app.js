@@ -28,12 +28,11 @@ let gameover
 
 const boredomStat =
 const hungerStat =
-const sleepinessStat 
 const sleepinessStat =
 
 const playButton =
-const sleepButton
-consg feedButton
+const sleepButton =
+const feedButton =
 
 const resetButton =
-const gameMessage = = 
+const gameMessage = 
