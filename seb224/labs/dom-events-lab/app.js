@@ -23,9 +23,8 @@ const equalsButton = document.querySelector(".button.equals") .addEventListener(
     const expression = display.textContent;
     if (/[0-9+\-*/]*$/.test(expression)) {
       display.textContent = eval(expression);
-    } else {
-      display.textContent = "Error";
- } });
+    } 
+  });
 
   
 // const calculator = document.querySelector("#calculator").addEventListener ("click", funciton(event) {
