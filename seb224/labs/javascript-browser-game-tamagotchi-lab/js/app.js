@@ -37,7 +37,7 @@ const sleepBtn = document.querySelector("#sleep").addEventListener("click", func
     console.log("haha that tickles");
   });
 
-const feedBtn = document .querySelector("#feed") .addEventListener("click", function (event) {
+const feedBtn = document .querySelector("#feed").addEventListener("click", function (event) {
     console.log("rrrr");
   });
 
