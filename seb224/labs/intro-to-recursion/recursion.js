@@ -58,7 +58,7 @@ console.log(factorial(5));
         if (index >= 0 && index < fibonacci.length) {  
             return fibonacci[index];                 
         } else {
-            return null;                               
+            return null                                
     }
 }   
     console.log(getFibonacciAtIndex(8));  // Output: 21
