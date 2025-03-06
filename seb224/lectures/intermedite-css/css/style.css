@@ -1,8 +1,76 @@
+d
+
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+
+
 body {
     font-family: Helvetica, Tahoma, Verdana, sans-serif;
   }
   
   h1 {
     text-align: center;
+    
+  }
+  h1:hover {
+    background: blue;
+
+
+}
+#comments-title::first-letter
+{
+  font-size: 60px;
+
+}
+/* Selects all <li> tags that are direct children of a <ul.top-level-list> */
+
+.top-level-list > li {
+    border: solid 1px orange;
+  }
+  div + div {
+    color: green;
+  }
+  input ~ input {
+    border: 1px solid red;
+  }
+  input[type='date'] {
+    ...;
+  } /* Targets checkbox inputs */
+  /* Set the width of an element to the entire width of the viewport */
+div {
+    width: 100vw;
+  }
+  
+  /* Set the font size of an element to 2 times the root font size */
+  p {
+    font-size: 2rem;
+  }
+  
+  /* Set the margin of an element to 10% of its container element */
+  input {
+    margin: 10%;
+  }
+  div {
+    /* div takes up the full height of the container element */
+    height: 100%;
+    /* min-height specifies that the div will be at minimum 100px tall */ 
+    min-height: 100px; 
+  }
+  * {
+    box-sizing: border-box
+  }
+  
+  body {
+    background-color: gray;
+    /* Use a system font; if none are available, use an available sans-serif font */
+    font-family: system-ui, sans-serif;
+    /* Ensures full height compatibility across devices */
+    min-height: 100dvh;
+    margin: 0;
   }
   
