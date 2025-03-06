@@ -43,18 +43,26 @@ function factorial(factor) {
     }
 }
 
-console.log(factorial(5));  // Should output: 120
+console.log(factorial(5));  
 
-  
-//   console.log(factorial(5)); 
+
   
 
 //   function fibonacci() {
-//     // This function returns the Nth number in the fibonacci sequence.
-//     // https://en.wikipedia.org/wiki/Fibonacci_number
-//     // For this function, the first two fibonacci numbers are 1 and 1
-//   }
+    // This function returns the Nth number in the fibonacci sequence.
+    // https://en.wikipedia.org/wiki/Fibonacci_number
+    // For this function, the first two fibonacci numbers are 1 and 1
+    const fibonacci = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
 
+    function getFibonacciAtIndex(index) {
+        if (index >= 0 && index < fibonacci.length) {  
+            return fibonacci[index];                 
+        } else {
+            return null;                               
+    }
+}   
+    console.log(getFibonacciAtIndex(8));  // Output: 21
+    
 //   function coinFlips() {
 //     // This function returns an array of all possible outcomes from flipping a coin N times.
 //     // Input type: Integer
