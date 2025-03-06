@@ -4,7 +4,8 @@ console.log("sup")
 //    The players choice
 //    The computers choice
 //    The match result - win/lose/tie
-//    A result message - display who won that round
+//    A result message - 
+// display who won that round
 
 // 2) Define the required constants:
 //    There are only 3 choices a user can make ("rock", "paper", "scissors")
