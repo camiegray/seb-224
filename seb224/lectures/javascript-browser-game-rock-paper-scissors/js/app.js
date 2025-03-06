@@ -31,7 +31,9 @@ let msg;
 const resultDisplayEl = document.querySelector('#result-display');
 
 /*-------------------------------- Functions --------------------------------*/
-
+const play = () => {
+    console.log("play")
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
 document.querySelector('#rock').addEventListener('click', play);
