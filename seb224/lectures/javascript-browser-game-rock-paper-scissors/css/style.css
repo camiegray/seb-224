@@ -1,4 +1,8 @@
+html {
+    background-image: linear-gradient(to right, hotpink, skyblue);
+}
 html, body {
+   
     margin: 0;
     display: flex;
     flex-direction: column;
