@@ -219,54 +219,19 @@ console.log('Exercise 4 my result: ', inventorNamedAda);
 //       names. You can split the string using ', ' as the separator.
 //       After splitting the names, rearrange them to the "First Last" format.
 
-
-let firstLast = 
-
+let firstLast = people.map((name) =>{ 
+   return name.split(', ').reverse().join(' ')
+   
+})
 
 console.log('Exercise 5 my result: ', firstLast);
-// console.log('Exercise 5 correct result: ', [
-//   'Carl Becker',
-//   'Samuel Beckett',
-//   'Mick Beddoes',
-//   'Henry Beecher',
-//   'Ludwig Beethoven',
-//   'Menachem Begin',
-//   'Hilaire Belloc',
-//   'Saul Bellow',
-//   'Robert Benchley',
-//   'Peter Benenson',
-//   'David Ben-Gurion',
-//   'Walter Benjamin',
-//   'Tony Benn',
-//   'Chester Bennington',
-//   'Leana Benson',
-//   'Silas Bent',
-//   'Lloyd Bentsen',
-//   'Ric Berger',
-//   'Ingmar Bergman',
-//   'Luciano Berio',
-//   'Milton Berle',
-//   'Irving Berlin',
-//   'Eric Berne',
-//   'Sandra Bernhard',
-//   'Yogi Berra',
-//   'Halle Berry',
-//   'Wendell Berry',
-//   'Erin Bethea',
-//   'Aneurin Bevan',
-//   'Ken Bevel',
-//   'Joseph Biden',
-//   'Ambrose Bierce',
-//   'Steve Biko',
-//   'Josh Billings',
-//   'Frank Biondo',
-//   'Augustine Birrell',
-//   'Elk Black',
-//   'Robert Blair',
-//   'Tony Blair',
-//   'William Blake',
-// ]);
-// /*
+
+
+
+
+
+
+
 // Exercise 6: Array.prototype.some()
 
 // Determine if there is at least one person in the devs array who is 18 years 
@@ -276,24 +241,23 @@ console.log('Exercise 5 my result: ', firstLast);
 // - Use the Array.prototype.some() method to check if any person in the array is 
 //   18 years old or older.
 // - Store the result (true or false) in the variable 'isAdultPresent'. 
-// */
+const currentYear = new Date().getFullYear()
 
-// let isAdultPresent = null;
+let isAdultPresent = devs.some((dev) =>  {
+    return currentYear - dev.year >= 18
 
-// // Complete the exercise in the space below:
 
-// // Check your work:
-// console.log('Exercise 6 my result: ', isAdultPresent);
+ })
+
+console.log('Exercise 6 my result: ', isAdultPresent);
 // console.log('Exercise 6 correct result: ', true);
 
 
 
 
 
-// // You can use a static year value to solve problems 6 and 7. 
-// // As a small level up opportunity, check out how to dynamically 
-// // get today’s year using the Date() constructor.
-// /*
+
+
 // Exercise 7: Array.prototype.every()
 
 // Use Array.prototype.every() to determine if every person in the devs array is 
@@ -304,48 +268,67 @@ console.log('Exercise 5 my result: ', firstLast);
 // - Use the Array.prototype.every() method to verify if every individual in the
 //   array is at least 19 years old.
 // - Store the result (true or false) in the variable 'isEveryone19OrOlder'.
-// */
 
-// let isEveryone19OrOlder = null;
 
-// // Complete the exercise in the space below:
+let isEveryone19OrOlder = devs.every((dev) => {
+    return currentYear - dev.year >= 19
 
-// // Check your work:
-// console.log('Exercise 7 my result: ', isEveryone19OrOlder);
+})
+
+
+console.log('Exercise 7 my result: ', isEveryone19OrOlder);
 // console.log('Exercise 7 correct result: ', false);
-// /*
+
+
+
+
+
+
 // Exercise 8: Array.prototype.find()
 
 // Use Array.prototype.find() to identify and retrieve the comment object with 
 // a specific ID 823423 from an array of comment objects.
 
 // - Assign the found comment object to the variable 'commentById'.
-// */
 
-// let commentById = {};
 
-// // Complete the exercise in the space below:
+let commentById = comments.find((comment) => {
+    return comment.id === 823423
 
-// // Check your work:
-// console.log('Exercise 8 my result: ', commentById);
+
+})
+
+console.log('Exercise 8 my result: ', commentById);
 // console.log('Exercise 8 correct result: ', { text: 'Super good', id: 823423 });
-// /*
+
+
+
+
+
+
+
+
+
+
 // Exercise 9: Array.prototype.findIndex()
 
 // Determine the index of the comment that has a specific ID 123523 in an array 
 // of comment objects.
 
-// - Store the index in the variable 'idx'.
-// */
 
-// let idx = null;
 
-// // Complete the exercise in the space below:
 
-// // Check your work:
-// console.log('Exercise 9 my result: ', idx);
+let idx = comments.findIndex((comment) => {
+    return comment.id === 123523
+
+
+
+})
+
+
+console.log('Exercise 9 my result: ', idx);
 // console.log('Exercise 9 correct result: ', 3);
-// /*
+
 // Level Up exercise 1: Array.prototype.reduce()
 
 // Calculate the combined lifespan of all the inventors using 
@@ -364,16 +347,21 @@ console.log('Exercise 5 my result: ', firstLast);
 // - Accumulate this lifespan in the 'totalYearsLived' variable.
 // - Remember, reduce takes a callback function and an initial value for the 
 //   accumulator.
-// */
 
-// let totalYearsLived = 0;
 
-// // Complete the exercise in the space below:
+let totalYearsLived = inventors.reduce((accumulator, inventor) => {
+    lifespan = inventor.passed-inventor.year
+        return accumulator+lifespan
 
-// // Check your work:
-// console.log('Level Up 1 my result: ', totalYearsLived);
+}, 0 )
+
+
+console.log('Level Up 1 my result: ', totalYearsLived);
+
+
+
 // console.log('Level Up 1 correct result: ', 861);
-// /*
+
 // Level Up exercise 2: Array.prototype.reduce()
 
 // Tallying travel methods using Array.prototype.reduce(). 
@@ -391,15 +379,21 @@ console.log('Exercise 5 my result: ', firstLast);
 //   to the object and give it a value of 1.
 // - Since you want to return an object, be sure to pass an empty {} for the 
 //   initial value of the "accumulator".
-// */
 
-// let travelMethodCounts = {};
 
-// // Complete the exercise in the space below:
+// let travelMethodCounts = travelMethods.reduce((accumulator, method), => {
+            
 
-// // Check your work:
+
+
+
+
+// }, 0 )
+
+
+
 // console.log('Level Up 2 my result: ', travelMethodCounts);
-// console.log('Level Up 2 correct result: ', {
+console.log('Level Up 2 results: I COULD NOT FIGURE THIS OUT WITH GOOGLE OR GPT WHATSOEVER. LOST AF')
 //   car: 5,
 //   truck: 3,
 //   bike: 2,
