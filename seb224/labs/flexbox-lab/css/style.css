@@ -19,11 +19,49 @@
   }
   
   nav {
+    text-align: center;
     background-color: white;
     padding: 8px 16px;
-  }
-  
-  p {
+    display: flex;                
+    justify-content: space-between; 
+    align-items: center;          
+}
+#destinations {
+    display: flex;                
+    gap: 20px; 
+}
+
+#destinations p {
+    margin: 0
+}
+#actions {
+    display: flex;                
+    gap: 16px;                    
+    align-items: center;          
+}
+#hero {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 66px;
+    
+}
+#headers h2 {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-around;
+}
+nav button {
+    background-color: #ea4c89;
+    border-radius: 8px;
+    padding: 10px 16px;
+    border: 0;
+    color: #ffffff;
+    font-weight: 500;
+}
+p {
     margin: 0;
   }
   
@@ -34,14 +72,13 @@
     padding: 24px 72px;
   }
   
-  h1,
-  h2 {
+  h1, h2 {
     text-align: center;
   }
   
   h1 {
     margin-top: 0;
-    font-size: 32px;
+    font-size: 28px;
   }
   
   h2 {
@@ -61,16 +98,17 @@
   main {
     background-color: white;
     padding: 32px 72px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
   }
   
-  nav button {
-    background-color: #ea4c89;
-    border-radius: 8px;
-    padding: 10px 16px;
-    border: 0;
-    color: #ffffff;
-    font-weight: 500;
-  }
+.card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
   
   .img-placeholder {
     width: 355px;
@@ -81,15 +119,33 @@
   
   .card-footer {
     font-size: 14px;
+    display: flex;                        
+    justify-content: space-between;       
+
   }
   
   .card-footer * {
     margin-top: 8px;
+    margin-right: right;
   }
-  
+.card-footer p {
+ 
+
+}
+  #trending {
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    font-size: 12;
+ 
+    
+  }
   #subnav {
     padding: 32px 72px 0;
     background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   #subnav button {
