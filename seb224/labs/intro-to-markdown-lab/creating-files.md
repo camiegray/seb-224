@@ -4,7 +4,7 @@
 ---
 ![Touch of Creation](https://media.istockphoto.com/id/488572441/photo/hand-of-god.jpg?s=612x612&w=is&k=20&c=iRx7FXaQaJ7rvGQTjtYkzrU_svFZD59LXxL7f1Xv7WM=)
 ---
->Working with the command line interface (CLI)  In this guide, we'll cover some basic commands to help you get started: `mkdir`, `take`, and `touch`. 
+Working with the command line interface (CLI)  In this guide, we'll cover some basic commands to help you get started: `mkdir`, `take`, and `touch`. 
 
 ---
 
