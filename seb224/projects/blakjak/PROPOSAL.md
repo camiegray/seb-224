@@ -1,7 +1,6 @@
 # BlakJak
 
-A card game to practice beating the real tables at! Mimics the BlackJack card game or 21. Greater functionality will be added later.
-
+A card game to practice beating the real tables at! Mimics the BlackJack card game or 21. With 2 cards given at random to the player and the computer you can add a card or stop adding based on if you think you will be the closest to 21 while only seeing one of two cards that the dealer has.
  #### **Landing View**
     
  ![image1](https://i.imgur.com/SmUSV9a.jpeg)
