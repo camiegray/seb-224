@@ -1,97 +1,63 @@
 
-# Project Proposal Example (omit from your own file)
+ 
+## **User Stories**
+---
 
-# To do's (omit from your own file when done)
-- Read the [project requirements](https://generalassembly.instructure.com/courses/713/pages/browser-based-game-project-journey-start-here?module_item_id=61592)
-- Your choice of game
-- The GitHub repository for your project
-    - Create files `index.html` `style.css` `app.js` `README.md` `PROPOSAL.md`
-- User stories (MVP and stretch goals)
-- Wire frames
-- Pseudocode for the overall gameplay
-- Any game-specific additional requirements (API used for data etc)
-- Create a rough timeline of the project week
-- Set up at least one 1:1 with Emre for Project Week [here](https://calendly.com/emre-surmeli/1-1s-with-ga) 👈
+### MVP Goals
+---
+1. As a user, I want to a starting page that is visually appealling and extremely apparent that it is a game and what kind it is.
 
-## Tic Tac Toe 
-Project Choice as Title (Tell us which project you're doing!)
+2. As a user, I want to see all the option for gameplay in viable locations across the page that make interaction intuitive and easy to learn.
 
-## Project Description 
+3. As a user, I want the availability of those buttons to be easily accessible and perform a very obvious function.
 
-My app is called Tic Tac Toe. It's a game app for players who want to play Tic Tac Toe online. Two players can join an online game and play a round of Tic Tac Toe, with the score being kept automatically and game results displayed at then end of a round -- whichever player won, or in the case of a draw, a tie between the users. Users will have the option to play again. In the future, I'd like to add a feature where one player can play against the computer. 
+4. As a user, I want a display to show the card count number to be vibrant and hard to miss so that I can make informed decision on my next selection.
 
-## Wire Frames
+5. As a user, I want it to be very apparent what the computer's choices are as well as that plays a vital role in my own decisions.
 
-**Initial Landing View**
 
-![image](https://media.git.generalassemb.ly/user/21811/files/0f7aee00-c1d9-11ea-9dad-de086a5c91fc)
 
-**Results View**
+6. As a user, I want to make sure I know that status of every round of gameplay and who has won the round
 
-![image](https://media.git.generalassemb.ly/user/21811/files/1a358300-c1d9-11ea-95da-6c14aefb0f18)
+7. As a user, I want to know why I have won/lost/tie, indicating if I did not reach the endgame identifier or the computer did better etc.
 
-## User Stories
+8. As a user, I want to see the count of win/loss by myself (Player 1) and the computer.
 
-#### MVP Goals
+9. As a user, I want to deal the cards again and make sure that I can continue practicing.
 
-- As a player, I want my game to recognize three ticks in a row so that I know who won.
-- As a player, I would like to be informed when the game is over due to a tie.
-- As a player, I would like to know whose turn it is so that I don't have to keep track.
-- As a player, I would like to be informed with some indication when I mark a game box so that I know my selection worked.
-- As a player who requires assistive technologies, I would like accessibility features so that I'm not left out of enjoying the game.
-- As a player I would like to be able to restart the game after a win, loss or tie.
-- As a player, I want the UI to be engaging and out of the way so that I enjoy the experience of playing the game.\*\*
 
-#### Stretch Goals
+### Stretch Goals
+1. As a user, I would like a betting function be implemented
 
-- As a player, I would like a victory animation when I win the game, so that I feel good about my victory!
-- As a player, I would like to hear an audible sound when I mark a game box so that I know my selection worked.
-- As a player, I would like to play this game online so that I don't have to have my challenger sitting next to me.
-- As a player who wants to dominate the battlefield I want to become the ultimate tic tac toe tactician so I can beat all of my opponents
+2. As a user, I would like to have an option to increase the amount of decks to be played with.
 
-## Pseudocode
-```js
-// 1) Define any variables used to track the state of the game:
-//    The players choice
-//    The computers choice
-//    The match result - win/lose/tie
-//    A result message - display who won that round
+3. As a user, I would like a card counting function to be implemented that way I can keep track of the cards to help with the legal strategy of counting cards.
 
-// 2) Define the required constants:
-//    There are only 3 choices a user can make ("rock", "paper", "scissors")
-//    We'll need a reference to a DOM element to display messages
+4. As a user, I would like a reshuffle button to reshuffle the deck.
 
-// 3) Handle a player clicking a button
+5. As a user, I would like animations to make the game more enjoyable.
 
-// 4) Handle generating random selections for the computer player
+6. As a user, would like to add a `split` button that will match the card game rules.
 
-// 5) Compare the player choice to the computer choice, and check for a winner
 
-// 6) Render a win/lose/tie message to the player 
-//    Include both player and computer selections in the message
-//    Clearly indicate who won
-```
+## **Psuedocode**
+---
+* There will be `playerScore` and `dealerScore` variables indicating the current score of the round.
 
-#### Notionboard Template
-Notionboard template for building projects ( You can use this for any project )
-https://www.notion.so/GA-Unit-3-Tunr-Lab-da2c82fafd4e4a7aa654676732db9ee3
+* There will be `playerHand` and `dealerHand` variables indicating the current numbers/cards that are being dealt to the player.
 
-#### Timeline - Daily Accountability
-Example of a Timeline to keep organized and on task for hitting goals every single day you’re on the sprint for your project.
+* The `dealCard`, `stand`, and `hit` buttons will contain the dealing of the cards, keeping your current cards, and adding a single card, functionality with a `New Deal` button to clear the current game or ended game to restart.
 
-Create your own table using this markdown table generator website:
-https://www.tablesgenerator.com/markdown_tables
+* Will need a `display` to show the current card count of the `playerHand` and `dealerHand` to help the play not lose count or have to continously look at their hand. (For ease of gameplay)
 
-Do not neglect to plan, you will thank yourself later for being proactive!
-| Day        |   | Task                               | Blockers | Notes/ Thoughts |
-|------------|---|------------------------------------|----------|-----------------|
-| Thursday   |   | Create and present proposal        |          |                 |
-| Friday     |   | Create html, js, css files         |          |                 |
-| Saturday   |   | Create basic scaffolding           |          |                 |
-| Sunday     |   | Add functionality                  |          |                 |
-| Monday     |   | Add styling                        |          |                 |
-| Tuesday    |   | Finaliza MVP                       |          |                 |
-| Wedenesday |   | Work on stretch goals              |          |                 |
-| Thursday   |   | Work on icebox items if applicable |          |                 |
-| Friday     |   | Presentation Day!                  |          |                 |
-|            |   |                                    |          |                 |
+* Using `.push` or `.unshift` functions will help push any cards that are given to the player by the `deal` or `hit` buttons to their hand.
+
+* Need to use `for` or `if` statement to indicate how the computer will select if it uses the `hit` or `stand` option.
+
+* Event listeners will be added for button clicks that will reference cached elements to perform a function that the button is assigned.
+
+* Message function that will display when the round is complete, indicating which player has won the round.
+
+* Will need to create a function for the iconic blackjack card pair that auto wins the match, disabling any `hit` or `stand` functionality
+
+
