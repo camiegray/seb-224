@@ -1,0 +1,159 @@
+body {
+    background-image: url("../assets/images/bckgrnd.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 35.25% 35.5%;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.card-table {
+    width: 900px;
+    height: 800px;
+    background-image: url("../assets/images/table.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.score-board {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    font-size: 24px;
+
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dealer-area, .player-area {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+}
+
+.dealer-area {
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.player-area {
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card-slot1, .card-slot2, .card-slot3, .card-slot4, .card-slot5 {
+    width: 70px;
+    height: 105px;
+    background-color: green;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: green;
+    width: 70px;
+    height: 105px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+
+}
+
+.dealer-count, .player-count {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    font-size: 28px;
+    color: limegreen;
+    background: black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dealer-count {
+    top: 285px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.player-count {
+    bottom: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls-left, .controls-right {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.controls-left {
+    left: 20px;
+}
+
+.controls-right {
+    right: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffd700;
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffeb3b;
+}
+
+button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.status {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 300px;
+    text-align: center;
+}
