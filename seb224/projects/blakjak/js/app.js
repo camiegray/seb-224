@@ -6,18 +6,6 @@ let playerHand = []
 let dealerHand = []
 let gameOver = false
 
-
-const playerScoreEl = document.getElementById("player-score")
-const dealerScoreEl = document.getElementById("dealer-score")
-const playerHandEl = document.querySelector(".player-area")
-const dealerHandEl = document.querySelector(".dealer-area")
-const statusEl = document.getElementById("game-status")
-const hitBtn = document.getElementById("hit-btn")
-const standBtn = document.getElementById("stand-btn")
-const newDeckBtn = document.getElementById("new-deck-btn")
-const dealBtn = document.getElementById("deal-btn")
-
-
 const shuffleDeck = () => {
     deck = []
     for (let i = 0; i < 6; i++) {
@@ -35,7 +23,7 @@ const shuffleDeck = () => {
 }
 
 const initGame = () => {
-    gameOver = false
+    gameOver = false  
     shuffleDeck()
 
     playerHand = []
@@ -77,6 +65,8 @@ const dealCards = () => {
         return
     }
 
+    gameOver = false  
+
     playerHand = [deck.shift(), deck.shift()]
     dealerHand = [deck.shift(), deck.shift()]
 
@@ -106,13 +96,13 @@ const dealCards = () => {
     statusEl.textContent = "Player's Turn!"
 
     if (playerScore === 21) {
-        statusEl.textContent = "BLAC JAC!!! Player Wins!"
+        statusEl.textContent = "BLAK JAK!!! Player Wins!"
         gameOver = true
     }
 }
 
 const hit = () => {
-    if (gameOver || playerHand.length === 0 || deck.length === 0) {
+    if (gameOver || deck.length === 4) {
         statusEl.textContent = "No more cards in the deck! Click New Deck."
         return
     }
@@ -178,12 +168,20 @@ const determineWinner = () => {
 }
 
 // Cached DOM references moved to the bottom
-
+const playerScoreEl = document.getElementById("player-score")
+const dealerScoreEl = document.getElementById("dealer-score")
+const playerHandEl = document.querySelector(".player-area")
+const dealerHandEl = document.querySelector(".dealer-area")
+const statusEl = document.getElementById("game-status")
+const hitBtn = document.getElementById("hit-btn")
+const standBtn = document.getElementById("stand-btn")
+const newDeckBtn = document.getElementById("new-deck-btn")
+const dealBtn = document.getElementById("deal-btn")
 
 // Attach event listeners at the bottom
-
 standBtn.addEventListener("click", stand)
 newDeckBtn.addEventListener("click", initGame)
 dealBtn.addEventListener("click", dealCards)
+hitBtn.addEventListener("click", hit)
 
 initGame()
