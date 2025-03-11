@@ -6,29 +6,48 @@ let playerHand = []
 let dealerHand = []
 let gameOver = false
 
-// Cache DOM elements
+
+const playerScoreEl = document.getElementById("player-score")
+const dealerScoreEl = document.getElementById("dealer-score")
+const playerHandEl = document.querySelector(".player-area")
+const dealerHandEl = document.querySelector(".dealer-area")
+const statusEl = document.getElementById("game-status")
+const hitBtn = document.getElementById("hit-btn")
+const standBtn = document.getElementById("stand-btn")
+const newDeckBtn = document.getElementById("new-deck-btn")
+const dealBtn = document.getElementById("deal-btn")
 
 
-// Game Initialization
-const initGame = () => {
+const shuffleDeck = () => {
     deck = []
-    playCards.forEach(card => {
-        for (let i = 0; i < 4; i++) {
-            const j = Math.floor(Math.random() * (deck.length + 1))
-            deck.splice(j, 0, card)
-        }
-    })
+    for (let i = 0; i < 6; i++) {
+        playCards.forEach(card => {
+            for (let j = 0; j < 4; j++) {
+                deck.push(card)
+            }
+        })
+    }
+
+    for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[deck[i], deck[j]] = [deck[j], deck[i]]
+    }
+}
+
+const initGame = () => {
+    gameOver = false
+    shuffleDeck()
 
     playerHand = []
     dealerHand = []
-    gameOver = false
+    playerHandEl.innerHTML = ""
+    dealerHandEl.innerHTML = ""
 
     statusEl.textContent = "Game Ready!"
     playerScoreEl.textContent = "0"
     dealerScoreEl.textContent = "0"
 }
 
-// Function to calculate score
 const calculateScore = (hand) => {
     let score = 0
     let aces = 0
@@ -52,7 +71,6 @@ const calculateScore = (hand) => {
     return score
 }
 
-// Deal Cards Function
 const dealCards = () => {
     if (deck.length < 4) {
         statusEl.textContent = "Not enough cards! Click New Deck."
@@ -83,58 +101,89 @@ const dealCards = () => {
     dealerScore = calculateScore(dealerHand)
 
     playerScoreEl.textContent = playerScore
-    dealerScoreEl.textContent = calculateScore([dealerHand[0]]) // Only show first card's score
+    dealerScoreEl.textContent = calculateScore([dealerHand[0]])
 
     statusEl.textContent = "Player's Turn!"
+
+    if (playerScore === 21) {
+        statusEl.textContent = "BLAC JAC!!! Player Wins!"
+        gameOver = true
+    }
 }
 
+const hit = () => {
+    if (gameOver || playerHand.length === 0 || deck.length === 0) {
+        statusEl.textContent = "No more cards in the deck! Click New Deck."
+        return
+    }
 
-// Attach event listeners AFTER function definitions
-document.getElementById("new-deck-btn").addEventListener("click", initGame)
-document.getElementById("deal-btn").addEventListener("click", dealCards)
-const playerScoreEl = document.getElementById("player-score")
-const dealerScoreEl = document.getElementById("dealer-score")
-const playerHandEl = document.querySelector(".player-area")
-const dealerHandEl = document.querySelector(".dealer-area")
-const statusEl = document.getElementById("game-status")
+    let newCard = deck.shift()
+    playerHand.push(newCard)
 
-const hitBtn = document.getElementById("hit-btn")
-const standBtn = document.getElementById("stand-btn")
-// Initialize the game
+    let cardEl = document.createElement("div")
+    cardEl.textContent = newCard
+    cardEl.classList.add("card")
+    playerHandEl.appendChild(cardEl)
+
+    playerScore = calculateScore(playerHand)
+    playerScoreEl.textContent = playerScore
+
+    if (playerScore > 21) {
+        statusEl.textContent = "Player Busts! Dealer Wins."
+        gameOver = true
+    }
+}
+
+const stand = () => {
+    if (gameOver || playerHand.length === 0) return
+
+    if (!dealerHandEl || dealerHandEl.children.length < 2) {
+        return
+    }
+
+    dealerHandEl.children[1].textContent = dealerHand[1]
+    dealerScore = calculateScore(dealerHand)
+    dealerScoreEl.textContent = dealerScore
+
+    while (dealerScore < 17) {
+        let newCard = deck.shift()
+        dealerHand.push(newCard)
+
+        let cardEl = document.createElement("div")
+        cardEl.textContent = newCard
+        cardEl.classList.add("card")
+        dealerHandEl.appendChild(cardEl)
+
+        dealerScore = calculateScore(dealerHand)
+        dealerScoreEl.textContent = dealerScore
+    }
+
+    determineWinner()
+}
+
+const determineWinner = () => {
+    gameOver = true
+
+    if (playerScore > 21) {
+        statusEl.textContent = "Player Busts! Dealer Wins."
+    } else if (dealerScore > 21) {
+        statusEl.textContent = "Dealer Busts! Player Wins!"
+    } else if (playerScore > dealerScore) {
+        statusEl.textContent = "Player Wins!"
+    } else if (playerScore < dealerScore) {
+        statusEl.textContent = "Dealer Wins!"
+    } else {
+        statusEl.textContent = "It's a Tie!"
+    }
+}
+
+// Cached DOM references moved to the bottom
+
+
+// Attach event listeners at the bottom
+
+standBtn.addEventListener("click", stand)
+newDeckBtn.addEventListener("click", initGame)
+dealBtn.addEventListener("click", dealCards)
+
 initGame()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
