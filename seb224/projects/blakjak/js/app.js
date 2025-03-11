@@ -96,7 +96,8 @@ const dealCards = () => {
     statusEl.textContent = "Player's Turn!"
 
     if (playerScore === 21) {
-        statusEl.textContent = "BLAK JAK!!! Player Wins!"
+        statusEl.textContent = "Blak Jak! Player wins!"
+        revealDealerHand()
         gameOver = true
     }
 }
@@ -182,7 +183,7 @@ const determineWinner = () => {
     }
 }
 
-// Cached DOM references moved to the bottom
+
 const playerScoreEl = document.getElementById("player-score")
 const dealerScoreEl = document.getElementById("dealer-score")
 const playerHandEl = document.querySelector(".player-area")
@@ -193,7 +194,7 @@ const standBtn = document.getElementById("stand-btn")
 const newDeckBtn = document.getElementById("new-deck-btn")
 const dealBtn = document.getElementById("deal-btn")
 
-// Attach event listeners at the bottom
+
 standBtn.addEventListener("click", stand)
 newDeckBtn.addEventListener("click", initGame)
 dealBtn.addEventListener("click", dealCards)
