@@ -1,21 +1,15 @@
 body {
     background-image: url("../assets/images/bckgrnd.jpg");
-    background-attachment: fixed;
     background-position: center;
     background-size: 35.25% 35.5%;
-    margin: 0;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
 }
 
 .game-container {
     text-align: center;
     color: white;
 }
-
 h1 {
     font-size: 48px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -26,11 +20,12 @@ h1 {
     width: 900px;
     height: 800px;
     background-image: url("../assets/images/table.jpg");
-    background-size: cover;
+    background-size: stretch;
     background-position: center;
     border-radius: 15px;
     position: relative;
-    overflow: hidden;
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .score-board {
