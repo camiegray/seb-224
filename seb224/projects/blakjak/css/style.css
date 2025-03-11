@@ -1,31 +1,32 @@
 body {
-    background-image: url("../assets/images/bckgrnd.jpg");
+    background-image: url("../assets/images/bk1.jpg");
+    
     background-position: center;
-    background-size: 35.25% 35.5%;
+    background-size: cover;
     display: flex;
     justify-content: center;
+    overflow: hidden;
+
 }
 
 .game-container {
+    position: relative;
     text-align: center;
     color: white;
+    padding: 175px;
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 88%);
 }
-h1 {
-    font-size: 48px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 10px;
-}
+
 
 .card-table {
     width: 900px;
     height: 800px;
     background-image: url("../assets/images/table.jpg");
-    background-size: stretch;
+    
     background-position: center;
-    border-radius: 15px;
+    border-radius: 150px;
+    overflow: hidden;
     position: relative;
-    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-    mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 .score-board {
@@ -37,7 +38,6 @@ h1 {
     justify-content: space-around;
     width: 80%;
     font-size: 24px;
-
     padding: 10px;
     border-radius: 10px;
 }
@@ -108,17 +108,19 @@ h1 {
 
 .controls-left, .controls-right {
     position: absolute;
-    bottom: 20px;
+    top: 50%;  /* Move to the middle */
+    transform: translateY(-50%); /* Center perfectly */
     display: flex;
-    gap: 10px;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 30px;
 }
 
 .controls-left {
-    left: 20px;
+    left: 10%; /* Adjust positioning to the left */
 }
 
 .controls-right {
-    right: 20px;
+    right: 10%; /* Adjust positioning to the right */
 }
 
 button {
@@ -126,7 +128,7 @@ button {
     font-size: 18px;
     border: none;
     border-radius: 5px;
-    background-color: #ffd700;
+    background-color:	rgb(212, 251, 54);
     color: black;
     cursor: pointer;
 }
@@ -135,20 +137,21 @@ button:hover {
     background-color: #ffeb3b;
 }
 
-button:disabled {
-    background-color: #666;
-    cursor: not-allowed;
-}
 
 .status {
     position: absolute;
-    bottom: 60px;
-    left: 50%;
+      top: 30px; /* Moves it to where the h1 was */
+      left: 50%;
     transform: translateX(-50%);
-    font-size: 24px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 10px;
-    min-width: 300px;
-    text-align: center;
-}
+        font-size: 48px; /* Match the h1 size */
+        font-weight: bold;
+        color: white;
+        background:rgba(255, 255, 255, 0.3) /* Remove background for a title-like effect */
+ 
+        padding: 10px;
+        border-radius: 10px;
+        min-width: 300px;
+        text-align: center;
+     
+    }
+    
