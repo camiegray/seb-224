@@ -102,7 +102,7 @@ const dealCards = () => {
 }
 
 const hit = () => {
-    if (gameOver || deck.length === 4) {
+    if (gameOver || deck.length === 0) {
         statusEl.textContent = "No more cards in the deck! Click New Deck."
         return
     }
@@ -118,18 +118,33 @@ const hit = () => {
     playerScore = calculateScore(playerHand)
     playerScoreEl.textContent = playerScore
 
-    if (playerScore > 21) {
+    if (playerScore === 21) {
+        statusEl.textContent = "Player hits 21! Player Wins!"
+        revealDealerHand()
+        gameOver = true
+    } else if (playerScore > 21) {
         statusEl.textContent = "Player Busts! Dealer Wins."
+        revealDealerHand()
         gameOver = true
     }
+}
+const revealDealerHand = () => {
+    dealerHandEl.children[1].textContent = dealerHand[1]  
+    dealerScore = calculateScore(dealerHand)
+    dealerScoreEl.textContent = dealerScore
+
+    dealerHand.forEach((card, index) => {
+        if (index > 1) {
+            let cardEl = document.createElement("div")
+            cardEl.textContent = card
+            cardEl.classList.add("card")
+            dealerHandEl.appendChild(cardEl)
+        }
+    })
 }
 
 const stand = () => {
     if (gameOver || playerHand.length === 0) return
-
-    if (!dealerHandEl || dealerHandEl.children.length < 2) {
-        return
-    }
 
     dealerHandEl.children[1].textContent = dealerHand[1]
     dealerScore = calculateScore(dealerHand)
