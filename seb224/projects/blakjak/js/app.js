@@ -6,6 +6,17 @@ let playerHand = []
 let dealerHand = []
 let gameOver = false
 
+
+
+const initGame = () => {
+    shuffleDeck()
+    playerHandEl.innerHTML = ""
+    dealerHandEl.innerHTML = ""
+    statusEl.textContent = "Game Ready!"
+    playerScoreEl.textContent = "0"
+    dealerScoreEl.textContent = "0"
+}
+
 const shuffleDeck = () => {
     deck = []
     for (let i = 0; i < 6; i++) {
@@ -15,26 +26,13 @@ const shuffleDeck = () => {
             }
         })
     }
-
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
         ;[deck[i], deck[j]] = [deck[j], deck[i]]
     }
 }
 
-const initGame = () => {
-    gameOver = false  
-    shuffleDeck()
 
-    playerHand = []
-    dealerHand = []
-    playerHandEl.innerHTML = ""
-    dealerHandEl.innerHTML = ""
-
-    statusEl.textContent = "Game Ready!"
-    playerScoreEl.textContent = "0"
-    dealerScoreEl.textContent = "0"
-}
 
 const calculateScore = (hand) => {
     let score = 0
