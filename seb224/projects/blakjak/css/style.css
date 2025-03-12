@@ -25,7 +25,7 @@ body {
     position: relative;
 }
 
-.score-board {
+.win-count {
     position: absolute;
     top: 20px;
     left: 50%;
@@ -129,10 +129,10 @@ button:hover {
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 48px;
-    font-weight: bold;
-    color: whitesmoke;
-    background: rgba(0, 0, 0, 0.3);
+    font-size: 50px;
+    font-weight: bolder;
+    color: #33f867;
+    background: transparent;
     padding: 10px;
     border-radius: 10px;
     min-width: 300px;

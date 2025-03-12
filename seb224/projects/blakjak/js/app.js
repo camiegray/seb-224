@@ -5,14 +5,22 @@ let dealerScore = 0
 let playerHand = []
 let dealerHand = []
 let gameOver = false
+let playerWins = 0
+let dealerWins = 0
 
-
+const playerScoreEl = document.getElementById("player-score")
+const dealerScoreEl = document.getElementById("dealer-score")
+const playerHandEl = document.querySelector(".player-area")
+const dealerHandEl = document.querySelector(".dealer-area")
+const statusEl = document.getElementById("game-status")
+const playerWinsEl = document.getElementById("player-wins")
+const dealerWinsEl = document.getElementById("dealer-wins")
 
 const initGame = () => {
     shuffleDeck()
     playerHandEl.innerHTML = ""
     dealerHandEl.innerHTML = ""
-    statusEl.textContent = "Game Ready!"
+    statusEl.textContent = "Game Ready! The cards have been shuffled!"
     playerScoreEl.textContent = "0"
     dealerScoreEl.textContent = "0"
 }
@@ -96,8 +104,12 @@ const dealCards = () => {
     if (playerScore === 21) {
         statusEl.textContent = "Blak Jak! Player wins!"
         revealDealerHand()
+        playerWins++
+        playerWinsEl.textContent = playerWins
         gameOver = true
     }
+   
+   
 }
 
 const hit = () => {
@@ -105,7 +117,7 @@ const hit = () => {
         statusEl.textContent = "No more cards in the deck! Click New Deck."
         return
     }
-
+    
     let newCard = deck.shift()
     playerHand.push(newCard)
 
@@ -119,10 +131,15 @@ const hit = () => {
 
     if (playerScore === 21) {
         statusEl.textContent = "Player hits 21! Player Wins!"
+        playerWins++
+        playerWinsEl.textContent = playerWins
         revealDealerHand()
         gameOver = true
     } else if (playerScore > 21) {
         statusEl.textContent = "Player Busts! Dealer Wins."
+       
+        dealerWins++
+        dealerWinsEl.textContent = dealerWins
         revealDealerHand()
         gameOver = true
     }
@@ -170,32 +187,29 @@ const determineWinner = () => {
 
     if (playerScore > 21) {
         statusEl.textContent = "Player Busts! Dealer Wins."
+        dealerWins++
     } else if (dealerScore > 21) {
         statusEl.textContent = "Dealer Busts! Player Wins!"
+        playerWins++
     } else if (playerScore > dealerScore) {
         statusEl.textContent = "Player Wins!"
+        playerWins++
     } else if (playerScore < dealerScore) {
         statusEl.textContent = "Dealer Wins!"
+        dealerWins++
     } else {
         statusEl.textContent = "It's a Tie!"
     }
+    playerWinsEl.textContent = playerWins
+    dealerWinsEl.textContent = dealerWins
+    
 }
 
-
-const playerScoreEl = document.getElementById("player-score")
-const dealerScoreEl = document.getElementById("dealer-score")
-const playerHandEl = document.querySelector(".player-area")
-const dealerHandEl = document.querySelector(".dealer-area")
-const statusEl = document.getElementById("game-status")
-const hitBtn = document.getElementById("hit-btn")
-const standBtn = document.getElementById("stand-btn")
-const newDeckBtn = document.getElementById("new-deck-btn")
-const dealBtn = document.getElementById("deal-btn")
+const hitBtn = document.getElementById("hit-btn").addEventListener("click", hit)
+const standBtn = document.getElementById("stand-btn").addEventListener("click", stand)
+const newDeckBtn = document.getElementById("new-deck-btn").addEventListener("click", initGame)
+const dealBtn = document.getElementById("deal-btn").addEventListener("click", dealCards)
 
 
-standBtn.addEventListener("click", stand)
-newDeckBtn.addEventListener("click", initGame)
-dealBtn.addEventListener("click", dealCards)
-hitBtn.addEventListener("click", hit)
 
 initGame()
