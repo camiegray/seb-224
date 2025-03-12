@@ -17,12 +17,15 @@ const playerWinsEl = document.getElementById("player-wins")
 const dealerWinsEl = document.getElementById("dealer-wins")
 
 const initGame = () => {
+    hitBtn.disabled = true
     shuffleDeck()
     playerHandEl.innerHTML = ""
     dealerHandEl.innerHTML = ""
     statusEl.textContent = "Game Ready! The cards have been shuffled!"
     playerScoreEl.textContent = "0"
     dealerScoreEl.textContent = "0"
+    hitBtn.disabled = true  
+    standBtn.disabled = true
 }
 
 const shuffleDeck = () => {
@@ -100,7 +103,8 @@ const dealCards = () => {
     dealerScoreEl.textContent = calculateScore([dealerHand[0]])
 
     statusEl.textContent = "Player's Turn!"
-
+    hitBtn.disabled = false
+    standBtn.disabled = false
     if (playerScore === 21) {
         statusEl.textContent = "Blak Jak! Player wins!"
         revealDealerHand()
@@ -113,7 +117,7 @@ const dealCards = () => {
 }
 
 const hit = () => {
-    if (gameOver || deck.length === 0) {
+    if (deck.length === 0) {
         statusEl.textContent = "No more cards in the deck! Click New Deck."
         return
     }
@@ -135,6 +139,8 @@ const hit = () => {
         playerWinsEl.textContent = playerWins
         revealDealerHand()
         gameOver = true
+        hitBtn.disabled = true
+        standBtn.disabled = true
     } else if (playerScore > 21) {
         statusEl.textContent = "Player Busts! Dealer Wins."
        
@@ -142,6 +148,8 @@ const hit = () => {
         dealerWinsEl.textContent = dealerWins
         revealDealerHand()
         gameOver = true
+        hitBtn.disabled = true
+        standBtn.disabled = true
     }
 }
 const revealDealerHand = () => {
@@ -165,7 +173,7 @@ const stand = () => {
     dealerHandEl.children[1].textContent = dealerHand[1]
     dealerScore = calculateScore(dealerHand)
     dealerScoreEl.textContent = dealerScore
-
+    hitBtn.disabled = true
     while (dealerScore < 17) {
         let newCard = deck.shift()
         dealerHand.push(newCard)
@@ -205,7 +213,7 @@ const determineWinner = () => {
     
 }
 
-const hitBtn = document.getElementById("hit-btn").addEventListener("click", hit)
+const hitBtn = document.getElementById("hit-btn").addEventListener("click", hit).disabled = true;
 const standBtn = document.getElementById("stand-btn").addEventListener("click", stand)
 const newDeckBtn = document.getElementById("new-deck-btn").addEventListener("click", initGame)
 const dealBtn = document.getElementById("deal-btn").addEventListener("click", dealCards)
