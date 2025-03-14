@@ -21,12 +21,15 @@ A sleek, interactive, and intuitive browser-based Blackjack game built entirely 
    - **Face Cards (J, Q, K)**: 10 points  
    - **Ace (A)**: Worth 1 or 11 points, whichever benefits your hand more.
 
+
 3. **Player's Actions:**  
    - **Hit:** Take another card.  
    - **Stand:** Keep your current cards, ending your turn.
 
+
 4. **Dealer’s Play:**  
    > - Dealer must hit on 16 or less and stand on 17 or more.
+
 
 5. **Winning and Losing:**  
    - Player busts (exceeds 21): Dealer wins.  
@@ -34,14 +37,14 @@ A sleek, interactive, and intuitive browser-based Blackjack game built entirely 
    - Highest hand (without busting) wins.  
    - A tie results in no points awarded.
 
+
 6. **Deck:**  
   > - The game uses **6 standard decks** of 52 cards each.  
    - Each card has **24 copies** total (6 decks × 4 copies per card).  
   > - Total: **312 cards**.
 
 ---
-
-## 🎮 How to Play
+## **🎮 Buttons and Controls**
 
 - ### `New Deck`: Shuffles and prepares a new deck for gameplay. Use this when cards run low.
 - ### `Deal`: Deals initial cards to start each round (2 cards each to player and dealer). The dealers second card is not show until you finish your turn.
@@ -49,7 +52,7 @@ A sleek, interactive, and intuitive browser-based Blackjack game built entirely 
 -  ### `Stand`: Ends your turn, letting the dealer finish their play.
 
 ---
-## 📌 Buttons and Controls
+## 📌 Control Chart
 
 | Button       | Action Description                           |
 |--------------|----------------------------------------------|
@@ -79,11 +82,12 @@ Immersive sound effects enhance gameplay:
 - **Adding card counting tool to help keep up the count**
 
 ## 🛠 Built With
+
 - HTML5
 - CSS3
 - JavaScript
--Custom Audio Clips (Generated with AI)
-
+- Custom Audio Clips (Generated with AI)
+- Custom Images and Art (Generated with AI)
 
 ## 📖 Additional Resources
 - [Blackjack Rules & Strategies (Bicycle Cards)](https://bicyclecards.com/how-to-play/blackjack)
