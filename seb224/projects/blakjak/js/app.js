@@ -17,9 +17,24 @@ const playerWinsEl = document.getElementById("player-wins")
 const dealerWinsEl = document.getElementById("dealer-wins")
 const rulesList = document.getElementById("rules-list");
 
+const shuffleAudio = new Audio("./assets/sound/cards_shuffling.mp3");
+const fourCardsAudio = new Audio("./assets/sound/four_cards_dealt.mp3");
+const oneCardAudio = new Audio("./assets/sound/one_card_dealt.mp3");
+
+
+const playSound = (audioClip) => {
+    audioClip.currentTime = 0;
+    audioClip.play();
+};
+
+const shuffleSound = () => playSound(shuffleAudio);
+const playFourCardsSound = () => playSound(fourCardsAudio);
+const playOneCardSound = () => playSound(oneCardAudio);
+
 
 const initGame = () => {
     shuffleDeck()
+    shuffleSound()
     rulesList.style.display = "none";
     rulesList.style.opacity = "0";
     playerHandEl.innerHTML = ""
@@ -44,7 +59,6 @@ const shuffleDeck = () => {
         ;[deck[i], deck[j]] = [deck[j], deck[i]]
     }
 }
-
 
 
 const calculateScore = (hand) => {
@@ -87,7 +101,7 @@ const dealCards = () => {
 
     playerHandEl.innerHTML = ""
     dealerHandEl.innerHTML = ""
-
+    playFourCardsSound()
     playerHand.forEach(card => {
         let cardEl = document.createElement("div")
         cardEl.textContent = card
@@ -130,7 +144,7 @@ const hit = () => {
     statusEl.textContent = "Hand is done, deal again?"
         return
     }
-    
+    playOneCardSound()
     let newCard = deck.shift()
     playerHand.push(newCard)
 
@@ -169,6 +183,7 @@ const revealDealerHand = () => {
             cardEl.classList.add("card")
             dealerHandEl.appendChild(cardEl)
         }
+        
     })
 }
 
