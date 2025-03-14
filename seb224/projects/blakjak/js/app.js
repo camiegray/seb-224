@@ -108,7 +108,6 @@ const dealCards = () => {
     cardEl.classList.add("card");
     dealerHandEl.appendChild(cardEl);
   });
-
   playerScore = calculateScore(playerHand);
   dealerScore = calculateScore(dealerHand);
 
