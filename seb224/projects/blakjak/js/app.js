@@ -161,6 +161,7 @@ const hit = () => {
     gameOver = true;
   }
 };
+
 const revealDealerHand = () => {
   dealerHandEl.children[1].textContent = dealerHand[1];
   dealerScore = calculateScore(dealerHand);
@@ -244,23 +245,13 @@ const fadeOnClick = (rulesList) => {
   }, 50);
 };
 
-const hitBtn = document
-  .getElementById("hit-btn")
-  .addEventListener("click", hit);
-const standBtn = document
-  .getElementById("stand-btn")
-  .addEventListener("click", stand);
-const newDeckBtn = document
-  .getElementById("new-deck-btn")
-  .addEventListener("click", initGame);
-const dealBtn = document
-  .getElementById("deal-btn")
-  .addEventListener("click", dealCards);
-const rulesBtn = document
-  .getElementById("rules-btn")
-  .addEventListener("click", () => {
+const hitBtn = document.getElementById("hit-btn").addEventListener("click", hit);
+const standBtn = document.getElementById("stand-btn").addEventListener("click", stand);
+const newDeckBtn = document.getElementById("new-deck-btn").addEventListener("click", initGame);
+const dealBtn = document.getElementById("deal-btn").addEventListener("click", dealCards);
+const rulesBtn = document .getElementById("rules-btn") .addEventListener("click", () => {
     const isHidden =
-      rulesList.style.display === "none" || !rulesList.style.display;
+    rulesList.style.display === "none" || !rulesList.style.display;
     rulesList.style.display = isHidden ? "block" : "none";
     rulesList.style.opacity = isHidden ? "1" : "0";
   });
