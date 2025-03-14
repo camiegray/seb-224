@@ -15,9 +15,13 @@ const dealerHandEl = document.querySelector(".dealer-area")
 const statusEl = document.getElementById("game-status")
 const playerWinsEl = document.getElementById("player-wins")
 const dealerWinsEl = document.getElementById("dealer-wins")
+const rulesList = document.getElementById("rules-list");
+
 
 const initGame = () => {
     shuffleDeck()
+    rulesList.style.display = "none";
+    rulesList.style.opacity = "0";
     playerHandEl.innerHTML = ""
     dealerHandEl.innerHTML = ""
     statusEl.textContent = "Game Ready! The cards have been shuffled!"
@@ -34,7 +38,6 @@ const shuffleDeck = () => {
             }
         })
     }
-
     
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
@@ -217,12 +220,33 @@ const determineWinner = () => {
     dealerWinsEl.textContent = dealerWins
     
 }
+const fadeOnClick = (rulesList) => {
+    let opacity = rulesList.style.opacity === "1" ? 1 : 0; 
+    let targetOpacity = opacity === 1 ? 0 : 1;
+    let displayState = targetOpacity === 1 ? "block" : "none";
+
+    if (targetOpacity === 1) rulesList.style.display = "block"; // Make it visible before fading in
+
+    const intervalId = setInterval(() => {
+        if ((targetOpacity === 1 && opacity < 1) || (targetOpacity === 0 && opacity > 0)) {
+            opacity += targetOpacity === 1 ? 0.1 : -0.1;
+            rulesList.style.opacity = opacity;
+        } else {
+            clearInterval(intervalId);
+            if (targetOpacity === 0) rulesList.style.display = "none"; 
+        }
+    }, 50);
+};
 
 const hitBtn = document.getElementById("hit-btn").addEventListener("click", hit)
 const standBtn = document.getElementById("stand-btn").addEventListener("click", stand)
 const newDeckBtn = document.getElementById("new-deck-btn").addEventListener("click", initGame)
 const dealBtn = document.getElementById("deal-btn").addEventListener("click", dealCards)
-
+const rulesBtn = document.getElementById("rules-btn").addEventListener("click", () => {
+    const isHidden = rulesList.style.display === "none" || !rulesList.style.display;
+    rulesList.style.display = isHidden ? "block" : "none";
+    rulesList.style.opacity = isHidden ? "1" : "0";
+});
 
 
 initGame()

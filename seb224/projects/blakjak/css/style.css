@@ -12,15 +12,18 @@ body {
     text-align: center;
     color: white;
     padding: 175px;
+    width: auto;
     mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 88%);
+    
 }
 
 .card-table {
     width: 900px;
     height: 825px;
+    display: flex;
     background-image: url("../assets/images/table.jpg");
     background-position: center;
-    border-radius: 150px;
+    border-radius: 200px;
     overflow: hidden;
     position: relative;
 }
@@ -125,6 +128,7 @@ button:hover {
 }
 
 .status {
+    display: flex;
     position: absolute;
     top: 30px;
     left: 50%;
@@ -138,4 +142,44 @@ button:hover {
     min-width: 300px;
     text-align: center;
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+}
+.rules-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-40%);
+    width: 200px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    color: white;
+    font-size: 18px;
+    border-radius: 40px;
+    z-index: 10;
+    
+}
+#rules-btn {
+    width: 145px;
+    margin: 10px auto
+    
+}
+
+.rules-container h2 {
+    color: #fcfcfc;
+    display: flex;
+    z-index: 10;
+}
+
+.rules-container ol {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    flex-grow: 1;
+    
+}
+
+.rules-container li {
+    margin-bottom: 15px;
+    line-height: 1.3;
 }
