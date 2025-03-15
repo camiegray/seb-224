@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -11,10 +12,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
     overflow: hidden;
 }
+
 
 .game-container {
     position: relative;
@@ -26,6 +28,7 @@ body {
     mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
 }
 
+
 .status {
     position: absolute;
     top: 20px;
@@ -34,34 +37,32 @@ body {
     font-size: 40px;
     font-weight: bolder;
     color: white;
-    padding: 15px;
+    padding: 15px 25px;
     border-radius: 10px;
     min-width: 350px;
     text-align: center;
     text-shadow: 2px 2px 5px rgba(0, 4, 1, 0.8);
     background: transparent;
-    z-index: 999;
+    z-index: 999; 
 }
 
+
 .card-table {
-    position: relative;
     width: 90%;
     max-width: 900px;
     height: 80vh;
     max-height: 800px;
     display: flex;
-    background-image: linear-gradient(
-        rgba(10, 37, 10, 0.2),
-        rgba(0, 0, 0, 0.3)
-    ), 
-    url("../assets/images/table.jpg");
+    background-image: linear-gradient(rgba(10, 37, 10, 0.4), rgba(0, 0, 0, 0.4)), url("../assets/images/table.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 15%;
+    border-radius: 20%;
     overflow: hidden;
+    position: relative;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 120px; 
 }
+
 
 .win-count {
     position: absolute;
@@ -75,6 +76,7 @@ body {
     padding: 8px;
     background: none;
 }
+
 
 .dealer-area, .player-area {
     position: absolute;
@@ -98,6 +100,7 @@ body {
     transform: translateX(-50%);
 }
 
+
 .card {
     background-color: green;
     width: 75px;
@@ -109,6 +112,7 @@ body {
     font-size: 20px;
     color: white;
 }
+
 
 .dealer-count, .player-count {
     position: absolute;
@@ -133,21 +137,22 @@ body {
     transform: translateX(-50%);
 }
 
+
 .controls-left, .controls-right {
     position: absolute;
     top: 46%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
 }
 
 .controls-left {
-    left: 20%;
+    left: 15%;
 }
 
 .controls-right {
-    right: 20%;
+    right: 15%;
 }
 
 button {
@@ -163,11 +168,11 @@ button {
 button:hover {
     background-color: #ffeb3b;
 }
-
 #rules-btn {
-    display: block;
-    width: 180px;
-    margin: 15px auto;
+    margin: 10px auto;
+
+
+
 }
 
 .rules-container {
@@ -178,15 +183,15 @@ button:hover {
     width: 220px;
     max-width: 250px;
     padding: 12px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     color: white;
     font-size: 18px;
     border-radius: 15px;
     z-index: 10;
     text-align: center;
-}
 
-.rules-container h2 {
+}
+rules-container h2 {
     color: #fcfcfc;
     font-size: 16px;
     text-align: center;
@@ -201,7 +206,6 @@ button:hover {
     margin-bottom: 10px;
     line-height: 1.3;
 }
-
 @media (max-width: 1024px) {
     .game-container {
         width: 100%;
@@ -223,8 +227,8 @@ button:hover {
     }
 
     .controls-left, .controls-right {
-        left: 12%;
-        right: 12%;
+        left: 10%;
+        right: 10%;
     }
 
     .rules-container {
@@ -232,82 +236,5 @@ button:hover {
         width: 90%;
         max-width: 300px;
         margin: 10px auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .game-container {
-        padding: 10px;
-    }
-
-    .status {
-        font-size: 28px;
-        top: 10px;
-    }
-
-    .dealer-area, .player-area {
-        flex-wrap: wrap;
-    }
-
-    .player-count {
-        bottom: 320px;
-    }
-
-    .controls-left, .controls-right {
-        left: 8%;
-        right: 8%;
-    }
-
-    .card {
-        width: 65px;
-        height: 95px;
-        font-size: 18px;
-    }
-
-    .dealer-count, .player-count {
-        width: 160px;
-        font-size: 20px;
-    }
-
-    .rules-container {
-        font-size: 16px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 6px 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card-table {
-        height: auto;
-        border-radius: 20px;
-    }
-
-    .win-count {
-        font-size: 20px;
-        width: 90%;
-    }
-
-    .status {
-        font-size: 24px;
-        top: 10px;
-    }
-
-    .player-count {
-        bottom: 300px;
-    }
-
-    .controls-left, .controls-right {
-        flex-direction: row;
-        justify-content: center;
-        left: 5%;
-        right: 5%;
-    }
-
-    .rules-container {
-        font-size: 14px;
-        width: 95%;
     }
 }
