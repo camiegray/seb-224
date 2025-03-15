@@ -215,20 +215,43 @@ rules-container h2 {
         width: 100%;
         height: 95vh;
         border-radius: 30px;
+        background-size: contain; /* Ensures full image is visible */
+        background-position: top center; /* Keeps dealer head in frame */
     }
 
     .status {
         font-size: 30px;
-        top: 15px;
+        top: 30px; /* Push it down slightly */
     }
 
-    .dealer-area, .player-area {
-        gap: 10px;
+    /* ✅ Fix Scoreboard Overlap */
+    .win-count {
+        top: 80px; /* Pushes scoreboard lower */
+        width: 70%; /* Prevents text from overlapping */
+        font-size: 22px;
+    }
+
+    .dealer-area {
+        top: 25%; /* Moves dealer's cards down */
+    }
+
+    .player-area {
+        bottom: 15%;
+    }
+
+    /* ✅ Lower Scoreboard Text */
+    .dealer-count {
+        top: 280px; /* Push down dealer count */
+    }
+
+    .player-count {
+        bottom: 320px; /* Push down player count */
     }
 
     .controls-left, .controls-right {
-        left: 10%;
-        right: 10%;
+        left: 12%;
+        right: 12%;
+        top: 55%; /* Lower controls */
     }
 
     .rules-container {
@@ -236,5 +259,73 @@ rules-container h2 {
         width: 90%;
         max-width: 300px;
         margin: 10px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .status {
+        font-size: 26px;
+        top: 40px; /* Push status lower */
+    }
+
+    /* ✅ Prevent Scoreboard Overlap */
+    .win-count {
+        top: 100px;
+        width: 80%;
+        font-size: 20px;
+    }
+
+    .dealer-area {
+        top: 30%;
+    }
+
+    .player-area {
+        bottom: 18%;
+    }
+
+    .controls-left, .controls-right {
+        left: 10%;
+        right: 10%;
+        top: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-table {
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .status {
+        font-size: 24px;
+        top: 50px; /* Lowered */
+    }
+
+    /* ✅ Fix Overlapping Scoreboard */
+    .win-count {
+        width: 90%;
+        top: 120px;
+        font-size: 18px;
+    }
+
+    .dealer-area {
+        top: 35%;
+    }
+
+    .player-area {
+        bottom: 20%;
+    }
+
+    .controls-left, .controls-right {
+        flex-direction: row;
+        justify-content: center;
+        left: 5%;
+        right: 5%;
+        top: 65%;
+    }
+
+    .rules-container {
+        font-size: 14px;
+        width: 95%;
     }
 }
