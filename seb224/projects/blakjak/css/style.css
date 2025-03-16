@@ -210,50 +210,39 @@ rules-container h2 {
     .game-container {
         width: 100%;
     }
-
     .card-table {
         width: 100%;
         height: 100vh;
         border-radius: 25px;
-        background-size: contain; /* Ensures full image is visible */
-        background-position: top center; /* Keeps dealer head in frame */
+        background-size: contain;
+        background-position: top center;
     }
-
     .status {
         font-size: 30px;
-        top: 30px; /* Push it down slightly */
+        top: 30px;
     }
-
-    /* ✅ Fix Scoreboard Overlap */
     .win-count {
-        top: 80px; /* Pushes scoreboard lower */
-        width: 70%; /* Prevents text from overlapping */
+        top: 80px;
+        width: 70%;
         font-size: 22px;
     }
-
     .dealer-area {
-        top: 25%; /* Moves dealer's cards down */
+        top: 25%;
     }
-
     .player-area {
         bottom: 15%;
     }
-
-    /* ✅ Lower Scoreboard Text */
     .dealer-count {
-        top: 240px; /* Push down dealer count */
+        top: 270px;
     }
-
     .player-count {
-        bottom: 360px; /* Push down player count */
+        bottom: 340px;
     }
-
     .controls-left, .controls-right {
         left: 12%;
         right: 12%;
-        top: 55%; /* Lower controls */
+        top: 55%;
     }
-
     .rules-container {
         position: static;
         width: 90%;
@@ -262,33 +251,28 @@ rules-container h2 {
     }
 }
 
-
 @media (max-width: 768px) {
     .status {
         font-size: 26px;
-        top: 40px; /* Push status lower */
-    }
-    .dealer-count {
-        top: 240px; /* Push even lower */
-    }
-
-    .player-count {
-        bottom: 440px; /* Push even lower */
+        top: 40px;
     }
     .win-count {
         top: 100px;
         width: 80%;
         font-size: 20px;
     }
-
     .dealer-area {
         top: 30%;
     }
-
     .player-area {
         bottom: 18%;
     }
-
+    .dealer-count {
+        top: 280px;
+    }
+    .player-count {
+        bottom: 360px;
+    }
     .controls-left, .controls-right {
         left: 10%;
         right: 10%;
@@ -296,38 +280,32 @@ rules-container h2 {
     }
 }
 
-@media (max-width: 480px) {40
+@media (max-width: 480px) {
     .card-table {
         height: auto;
         border-radius: 10px;
     }
-    .dealer-count {
-        top: 340px; /* Push further down */
-    }
-
-    .player-count {
-        bottom: 4px; 
-    }
     .status {
         font-size: 24px;
-        top: 50px; /* Lowered */
+        top: 50px;
     }
-
-    /* ✅ Fix Overlapping Scoreboard */
     .win-count {
         width: 90%;
         top: 120px;
         font-size: 18px;
     }
-
     .dealer-area {
         top: 35%;
     }
-
     .player-area {
         bottom: 20%;
     }
-
+    .dealer-count {
+        top: 320px;
+    }
+    .player-count {
+        bottom: 30px;
+    }
     .controls-left, .controls-right {
         flex-direction: row;
         justify-content: center;
@@ -335,7 +313,6 @@ rules-container h2 {
         right: 5%;
         top: 65%;
     }
-
     .rules-container {
         font-size: 14px;
         width: 95%;
