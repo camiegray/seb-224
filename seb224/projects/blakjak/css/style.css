@@ -260,15 +260,28 @@ rules-container h2 {
         max-width: 300px;
         margin: 10px auto;
     }
+    .dealer-count {
+        top: 320px; /* Move dealer score lower */
+    }
+
+    .player-count {
+        bottom: 360px; /* Move player score lower */
+    }
 }
+
 
 @media (max-width: 768px) {
     .status {
         font-size: 26px;
         top: 40px; /* Push status lower */
     }
+    .dealer-count {
+        top: 340px; /* Push even lower */
+    }
 
-    /* ✅ Prevent Scoreboard Overlap */
+    .player-count {
+        bottom: 380px; /* Push even lower */
+    }
     .win-count {
         top: 100px;
         width: 80%;
@@ -295,7 +308,13 @@ rules-container h2 {
         height: auto;
         border-radius: 20px;
     }
+    .dealer-count {
+        top: 360px; /* Push further down */
+    }
 
+    .player-count {
+        bottom: 400px; 
+    }
     .status {
         font-size: 24px;
         top: 50px; /* Lowered */
