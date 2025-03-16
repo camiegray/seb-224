@@ -1,4 +1,4 @@
-
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@ body {
     overflow: hidden;
 }
 
-
+/* MAIN CONTAINER */
 .game-container {
     position: relative;
     text-align: center;
@@ -28,10 +28,10 @@ body {
     mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
 }
 
-
+/* STATUS MESSAGE BAR (ALWAYS VISIBLE ABOVE TABLE) */
 .status {
     position: absolute;
-    top: 20px;
+    top: 20px; /* Moves it down slightly so it's NEVER hidden */
     left: 50%;
     transform: translateX(-50%);
     font-size: 40px;
@@ -43,27 +43,27 @@ body {
     text-align: center;
     text-shadow: 2px 2px 5px rgba(0, 4, 1, 0.8);
     background: transparent;
-    z-index: 999; 
+    z-index: 999; /* Ensures it's above everything */
 }
 
-
+/* TABLE */
 .card-table {
     width: 90%;
     max-width: 900px;
     height: 80vh;
     max-height: 800px;
     display: flex;
-    background-image: linear-gradient(rgba(10, 37, 10, 0.4), rgba(0, 0, 0, 0.4)), url("../assets/images/table.jpg");
+    background-image: url("../assets/images/table.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 20%;
+    border-radius: 10%;
     overflow: hidden;
     position: relative;
     margin: auto;
-    margin-top: 120px; 
+    margin-top: 120px; /* Pushes table down so status fits */
 }
 
-
+/* WIN COUNT (SCOREBOARD) */
 .win-count {
     position: absolute;
     top: 10px;
@@ -77,7 +77,7 @@ body {
     background: none;
 }
 
-
+/* PLAYER & DEALER AREAS */
 .dealer-area, .player-area {
     position: absolute;
     display: flex;
@@ -100,7 +100,7 @@ body {
     transform: translateX(-50%);
 }
 
-
+/* CARDS */
 .card {
     background-color: green;
     width: 75px;
@@ -113,7 +113,7 @@ body {
     color: white;
 }
 
-
+/* COUNTERS */
 .dealer-count, .player-count {
     position: absolute;
     width: 180px;
@@ -137,7 +137,7 @@ body {
     transform: translateX(-50%);
 }
 
-
+/* CONTROLS (MOVED CLOSER TO CENTER) */
 .controls-left, .controls-right {
     position: absolute;
     top: 46%;
@@ -168,13 +168,8 @@ button {
 button:hover {
     background-color: #ffeb3b;
 }
-#rules-btn {
-    margin: 10px auto;
 
-
-
-}
-
+/* RULES */
 .rules-container {
     position: absolute;
     top: 50%;
@@ -188,10 +183,14 @@ button:hover {
     font-size: 18px;
     border-radius: 15px;
     z-index: 10;
-    text-align: center;
 
 }
-rules-container h2 {
+#rules-btn {
+    text-align: center;
+    display: flex;
+    text-align: center;
+}
+.rules-container h2 {
     color: #fcfcfc;
     font-size: 16px;
     text-align: center;
@@ -199,222 +198,10 @@ rules-container h2 {
 
 .rules-container ol {
     padding-left: 20px;
-    text-align: left;
 }
 
 .rules-container li {
     margin-bottom: 10px;
     line-height: 1.3;
 }
-@media (max-width: 1500px) {
-    .card-table {
-        width: 95%;
-        height: 85vh;
-        border-radius: 15%;
-        background-position: top center;
-    }
-    .status {
-        font-size: 36px;
-        top: 30px;
-    }
-    .win-count {
-        font-size: 22px;
-        top: 80px;
-    }
-    .dealer-area {
-        top: 22%;
-    }
-    .player-area {
-        bottom: 20%;
-    }
-    .dealer-count {
-        top: 230px;
-    }
-    .player-count {
-        bottom: 350px;
-    }
-    .controls-left, .controls-right {
-        top: 50%;
-        gap: 40px;
-        transform: scale(0.9);
-    }
-}
 
-@media (max-width: 1200px) {
-    .card-table {
-        width: 100%;
-        height: 90vh;
-        border-radius: 12%;
-    }
-    .status {
-        font-size: 32px;
-        top: 40px;
-    }
-    .win-count {
-        font-size: 20px;
-        top: 90px;
-    }
-    .dealer-area {
-        top: 25%;
-    }
-    .player-area {
-        bottom: 22%;
-    }
-    .dealer-count {
-        top: 250px;
-    }
-    .player-count {
-        bottom: 400px;
-    }
-    .controls-left, .controls-right {
-        top: 55%;
-        gap: 35px;
-        transform: scale(0.85);
-    }
-}
-
-@media (max-width: 992px) {
-    .card-table {
-        width: 100%;
-        height: 85vh;
-        border-radius: 10%;
-    }
-    .status {
-        font-size: 28px;
-        top: 50px;
-    }
-    .win-count {
-        font-size: 18px;
-        top: 100px;
-    }
-    .dealer-area {
-        top: 28%;
-    }
-    .player-area {
-        bottom: 25%;
-    }
-    .dealer-count {
-        top: 270px;
-    }
-    .player-count {
-        bottom: 420px;
-    }
-    .controls-left, .controls-right {
-        top: 60%;
-        gap: 30px;
-        transform: scale(0.8);
-    }
-}
-
-@media (max-width: 768px) {
-    .card-table {
-        width: 100%;
-        height: auto;
-        border-radius: 8%;
-    }
-    .status {
-        font-size: 26px;
-        top: 60px;
-    }
-    .win-count {
-        font-size: 16px;
-        top: 110px;
-    }
-    .dealer-area {
-        top: 32%;
-    }
-    .player-area {
-        bottom: 28%;
-    }
-    .dealer-count {
-        top: 290px;
-    }
-    .player-count {
-        bottom: 450px;
-    }
-    .controls-left, .controls-right {
-        top: 62%;
-        gap: 25px;
-        transform: scale(0.75);
-    }
-    .rules-container {
-        width: 85%;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .card-table {
-        width: 100%;
-        height: auto;
-        border-radius: 5%;
-    }
-    .status {
-        font-size: 22px;
-        top: 70px;
-    }
-    .win-count {
-        font-size: 14px;
-        top: 120px;
-    }
-    .dealer-area {
-        top: 35%;
-    }
-    .player-area {
-        bottom: 30%;
-    }
-    .dealer-count {
-        top: 310px;
-    }
-    .player-count {
-        bottom: 470px;
-    }
-    .controls-left, .controls-right {
-        flex-direction: row;
-        justify-content: center;
-        top: 68%;
-        gap: 20px;
-        transform: scale(0.7);
-    }
-    .rules-container {
-        width: 90%;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 400px) {
-    .card-table {
-        border-radius: 3%;
-    }
-    .status {
-        font-size: 20px;
-        top: 80px;
-    }
-    .win-count {
-        font-size: 12px;
-        top: 130px;
-    }
-    .dealer-area {
-        top: 38%;
-    }
-    .player-area {
-        bottom: 32%;
-    }
-    .dealer-count {
-        top: 330px;
-    }
-    .player-count {
-        bottom: 500px;
-    }
-    .controls-left, .controls-right {
-        flex-direction: row;
-        justify-content: center;
-        top: 72%;
-        gap: 15px;
-        transform: scale(0.65);
-    }
-    .rules-container {
-        width: 95%;
-        font-size: 12px;
-    }
-}
