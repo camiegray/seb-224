@@ -1,110 +1,70 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     background-image: url("../assets/images/bk1.jpg");
     background-position: center;
     background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
     overflow: hidden;
 }
 
-/* MAIN CONTAINER */
 .game-container {
     position: relative;
     text-align: center;
     color: white;
-    padding: 20px;
-    width: 95%;
-    max-width: 1200px;
-    mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
+    padding: 175px;
+    width: auto;
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 88%);
+    
 }
 
-/* STATUS MESSAGE BAR (ALWAYS VISIBLE ABOVE TABLE) */
-.status {
-    position: absolute;
-    top: 20px; /* Moves it down slightly so it's NEVER hidden */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-    font-weight: bolder;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
-    min-width: 350px;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 4, 1, 0.8);
-    background: transparent;
-    z-index: 999; /* Ensures it's above everything */
-}
-
-/* TABLE */
 .card-table {
-    width: 90%;
-    max-width: 900px;
-    height: 80vh;
-    max-height: 800px;
+    width: 900px;
+    height: 825px;
     display: flex;
     background-image: url("../assets/images/table.jpg");
-    background-size: cover;
     background-position: center;
-    border-radius: 10%;
+    border-radius: 200px;
     overflow: hidden;
     position: relative;
-    margin: auto;
-    margin-top: 120px; /* Pushes table down so status fits */
 }
 
-/* WIN COUNT (SCOREBOARD) */
 .win-count {
     position: absolute;
-    top: 10px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: space-around;
-    width: 85%;
-    font-size: 24px;
-    padding: 8px;
-    background: none;
+    width: 80%;
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-/* PLAYER & DEALER AREAS */
 .dealer-area, .player-area {
     position: absolute;
     display: flex;
     gap: 10px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    width: 80%;
 }
 
 .dealer-area {
-    top: 18%;
+    top: 150px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .player-area {
-    bottom: 24%;
+    bottom: 200px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* CARDS */
 .card {
     background-color: green;
-    width: 75px;
-    height: 110px;
+    width: 70px;
+    height: 105px;
     border-radius: 6px;
     display: flex;
     justify-content: center;
@@ -113,12 +73,11 @@ body {
     color: white;
 }
 
-/* COUNTERS */
 .dealer-count, .player-count {
     position: absolute;
-    width: 180px;
+    width: 200px;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     color: limegreen;
     background: black;
     padding: 5px;
@@ -132,31 +91,30 @@ body {
 }
 
 .player-count {
-    bottom: 340px;
+    bottom: 350px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* CONTROLS (MOVED CLOSER TO CENTER) */
 .controls-left, .controls-right {
     position: absolute;
-    top: 46%;
+    top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 45px;
 }
 
 .controls-left {
-    left: 15%;
+    left: 6%;
 }
 
 .controls-right {
-    right: 15%;
+    right: 9%;
 }
 
 button {
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
@@ -169,39 +127,59 @@ button:hover {
     background-color: #ffeb3b;
 }
 
-/* RULES */
+.status {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    font-weight: bolder;
+    color: #ffffff;
+ 
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 300px;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 4, 1, 0.8);
+}
 .rules-container {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    width: 220px;
-    max-width: 250px;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.2);
+    left: 20px;
+    transform: translateY(-40%);
+    width: 200px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.05);
     color: white;
     font-size: 18px;
-    border-radius: 15px;
+    border-radius: 40px;
     z-index: 10;
-
+    
 }
 #rules-btn {
-    text-align: center;
-    display: flex;
-    text-align: center;
+    width: 145px;
+    margin: 10px auto
+    
 }
+
 .rules-container h2 {
     color: #fcfcfc;
-    font-size: 16px;
-    text-align: center;
+    display: flex;
+    z-index: 10;
 }
 
 .rules-container ol {
+    display: flex;
+    flex-direction: column;
     padding-left: 20px;
+    flex-grow: 1;
+    
 }
 
 .rules-container li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     line-height: 1.3;
 }
-
