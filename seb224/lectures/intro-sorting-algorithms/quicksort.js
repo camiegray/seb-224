@@ -19,13 +19,7 @@ function quickSort(arr){
   
 // let's sort [4, 6, 3, 7, 1, 5]
 // 
-  // okay, so partition for qs([4, 3, 1]) would be 1
-  // and the left array would be []
-  // and the right array would be [4, 3]
-  // So qs([4, 3, 1]) is [...qs([]), 1, ...qs([4, 3]);
-    // well, what's qs([])? it is []!
-    // and what's qs[4, 3]?
-      // partition would be 3
+  // okay, so partition for qs([4, 3, 1]
       // left would be [];
       // and right would be [4]
       // So qs([4, 3]) is [...qs[], 3, ...qs[4]]
