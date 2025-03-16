@@ -1,4 +1,5 @@
-# 🃏 BlakJak - Browser-Based Blackjack Game
+# 🃏 BlakJak - Browser-Based Blackjack Game 
+##### [PLAY NOW](https://camiegray.github.io/seb-224/seb224/projects/blakjak/)
 
 A sleek, interactive, and intuitive browser-based Blackjack game built entirely with HTML, CSS, and JavaScript.
 
