@@ -60,7 +60,7 @@ A sleek, interactive, and intuitive browser-based Blackjack game built entirely 
 | Button       | Action Description                           |
 |--------------|----------------------------------------------|
 | `HIT`      | Draw an additional card.                     |
-| `HIT`    | End your turn; dealer plays.                 |
+| `STAND`    | End your turn; dealer plays.                 |
 | `DEAL`     | Start a new round by dealing initial cards.  |
 | `NEW DECK` | Shuffle a fresh 312-card deck.               |
 
@@ -103,7 +103,7 @@ Check out this comprehensive guide:
 ---
 ### 📚 References & Credits
 
-- Deck-shuffling logic based on the [Fisher–Yates Shuffle algorithm](https://stackoverflow.com/questions/59810241/how-to-fisher-yates-shuffle-a-javascript-array).
+- Deck-shuffling logic based on the [Fisher–Yates Shuffle Algorithm](https://stackoverflow.com/questions/59810241/how-to-fisher-yates-shuffle-a-javascript-array).
 
 ## 👤 Author
 Developed by Camie Gray 
