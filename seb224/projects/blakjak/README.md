@@ -4,7 +4,9 @@
 A sleek, interactive, and intuitive browser-based Blackjack game built entirely with HTML, CSS, and JavaScript.
 
 ---
+![Gameplay Screenshot](assets/images/play.png)
 
+---
 ## 🚩 Game Objective
 
 > Your goal is to get your hand as close to **21** as possible without exceeding it ("busting"). Beat the dealer’s hand without going over 21 to win!
@@ -99,6 +101,10 @@ Check out this comprehensive guide:
 
 - [**Blackjack Card Counting Guide**](https://www.blackjackapprenticeship.com/how-to-count-cards/)  
 ---
+### 📚 References & Credits
+
+- Deck-shuffling logic based on the [Fisher–Yates Shuffle algorithm](https://stackoverflow.com/questions/59810241/how-to-fisher-yates-shuffle-a-javascript-array).
+
 ## 👤 Author
 Developed by Camie Gray 
 

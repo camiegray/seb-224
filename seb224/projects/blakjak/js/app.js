@@ -17,6 +17,7 @@ const playerWinsEl = document.getElementById("player-wins");
 const dealerWinsEl = document.getElementById("dealer-wins");
 const rulesList = document.getElementById("rules-list");
 
+const loseSound = new Audio("./assets/sound/boo_sound.mp3");
 const shuffleAudio = new Audio("./assets/sound/cards_shuffling.mp3");
 const fourCardsAudio = new Audio("./assets/sound/four_cards_dealt.mp3");
 const oneCardAudio = new Audio("./assets/sound/one_card_dealt.mp3");
@@ -130,8 +131,12 @@ const hit = () => {
     statusEl.textContent = "No more cards in the deck! Click New Deck.";
     return;
   }
+  if (playerScore === 0) {
+    statusEl.textContent = "Deal first before hitting";
+    return;
+  }
   if (gameOver) {
-    statusEl.textContent = "Hand is done, deal again?";
+    statusEl.textContent = "Hand is over, deal again?";
     return;
   }
   playOneCardSound();
@@ -158,6 +163,7 @@ const hit = () => {
     dealerWins++;
     dealerWinsEl.textContent = dealerWins;
     revealDealerHand();
+
     gameOver = true;
   }
 };
@@ -178,8 +184,12 @@ const revealDealerHand = () => {
 };
 
 const stand = () => {
-  if (gameOver || playerHand.length === 0) {
+  if (gameOver) {
     statusEl.textContent = "Hand is over, deal the cards!";
+    return;
+  }
+  if (playerScore === 0) {
+    statusEl.textContent = "No cards to stand with! Deal em!";
     return;
   }
 
@@ -246,12 +256,12 @@ const fadeOnClick = (rulesList) => {
 };
 
 const hitBtn = document.getElementById("hit-btn").addEventListener("click", hit);
-const standBtn = document.getElementById("stand-btn").addEventListener("click", stand);
-const newDeckBtn = document.getElementById("new-deck-btn").addEventListener("click", initGame);
-const dealBtn = document.getElementById("deal-btn").addEventListener("click", dealCards);
-const rulesBtn = document .getElementById("rules-btn") .addEventListener("click", () => {
+const standBtn = document .getElementById("stand-btn").addEventListener("click", stand);
+const newDeckBtn = document .getElementById("new-deck-btn") .addEventListener("click", initGame);
+const dealBtn = document .getElementById("deal-btn").addEventListener("click", dealCards);
+const rulesBtn = document.getElementById("rules-btn") .addEventListener("click", () => {
     const isHidden =
-    rulesList.style.display === "none" || !rulesList.style.display;
+      rulesList.style.display === "none" || !rulesList.style.display;
     rulesList.style.display = isHidden ? "block" : "none";
     rulesList.style.opacity = isHidden ? "1" : "0";
   });
