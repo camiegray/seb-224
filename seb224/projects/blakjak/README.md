@@ -95,7 +95,7 @@ Immersive sound effects enhance gameplay:
 
 ## 📖 Additional Resources
 - [Blackjack Rules & Strategies (Bicycle Cards)](https://bicyclecards.com/how-to-play/blackjack)
-- [Chart of when to hit or stand](https://www.blackjackapprenticeship.com/blackjack-strategy-charts/)
+- [When To Hit/Stand Chart](https://www.blackjackapprenticeship.com/blackjack-strategy-charts/)
 
 > Want to enhance your gameplay by learning to count cards?  
 Check out this comprehensive guide:
