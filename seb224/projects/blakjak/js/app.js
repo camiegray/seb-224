@@ -239,8 +239,7 @@ const fadeOnClick = (rulesList) => {
   let targetOpacity = opacity === 1 ? 0 : 1;
   let displayState = targetOpacity === 1 ? "block" : "none";
 
-  if (targetOpacity === 1) rulesList.style.display = "block"; // Make it visible before fading in
-
+  if (targetOpacity === 1) rulesList.style.display = "block";
   const intervalId = setInterval(() => {
     if (
       (targetOpacity === 1 && opacity < 1) ||
