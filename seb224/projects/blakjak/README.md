@@ -4,7 +4,8 @@
 A sleek, interactive, and intuitive browser-based Blackjack game built entirely with HTML, CSS, and JavaScript.
 
 ---
-![Gameplay Screenshot](assets/images/play.png)
+
+<img src="assets/images/play.png" alt="Gameplay Screenshot" style="height: 350px; width:550px;"/>
 
 ---
 ## 🚩 Game Objective
