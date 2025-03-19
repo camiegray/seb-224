@@ -1,4 +1,12 @@
+// Emre's notes from presentation
+// Great README
+// Good spacing and code syntax
+// You can leave some comments in your code
+
+/*-------------------------------- Constants --------------------------------*/
 const playCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+
+/*-------------------------------- Variables --------------------------------*/
 let deck = [];
 let playerScore = 0;
 let dealerScore = 0;
@@ -8,6 +16,7 @@ let gameOver = false;
 let playerWins = 0;
 let dealerWins = 0;
 
+/*------------------------ Cached Element References ------------------------*/
 const playerScoreEl = document.getElementById("player-score");
 const dealerScoreEl = document.getElementById("dealer-score");
 const playerHandEl = document.querySelector(".player-area");
@@ -22,6 +31,8 @@ const shuffleAudio = new Audio("./assets/sound/cards_shuffling.mp3");
 const fourCardsAudio = new Audio("./assets/sound/four_cards_dealt.mp3");
 const oneCardAudio = new Audio("./assets/sound/one_card_dealt.mp3");
 
+
+// Sound setup
 const playSound = (audioClip) => {
   audioClip.currentTime = 0;
   audioClip.play();
@@ -31,6 +42,7 @@ const shuffleSound = () => playSound(shuffleAudio);
 const playFourCardsSound = () => playSound(fourCardsAudio);
 const playOneCardSound = () => playSound(oneCardAudio);
 
+/*-------------------------------- Functions --------------------------------*/
 const initGame = () => {
   shuffleDeck();
   shuffleSound();
@@ -234,10 +246,10 @@ const determineWinner = () => {
   playerWinsEl.textContent = playerWins;
   dealerWinsEl.textContent = dealerWins;
 };
+
 const fadeOnClick = (rulesList) => {
   let opacity = rulesList.style.opacity === "1" ? 1 : 0;
   let targetOpacity = opacity === 1 ? 0 : 1;
-  let displayState = targetOpacity === 1 ? "block" : "none";
 
   if (targetOpacity === 1) rulesList.style.display = "block";
   const intervalId = setInterval(() => {
@@ -254,15 +266,31 @@ const fadeOnClick = (rulesList) => {
   }, 50);
 };
 
-const hitBtn = document.getElementById("hit-btn").addEventListener("click", hit);
-const standBtn = document .getElementById("stand-btn").addEventListener("click", stand);
-const newDeckBtn = document .getElementById("new-deck-btn") .addEventListener("click", initGame);
-const dealBtn = document .getElementById("deal-btn").addEventListener("click", dealCards);
-const rulesBtn = document.getElementById("rules-btn") .addEventListener("click", () => {
+/*----------------------------- Event Listeners -----------------------------*/
+const hitBtn = document
+  .getElementById("hit-btn")
+  .addEventListener("click", hit);
+
+const standBtn = document
+  .getElementById("stand-btn")
+  .addEventListener("click", stand);
+
+const newDeckBtn = document
+  .getElementById("new-deck-btn")
+  .addEventListener("click", initGame);
+
+const dealBtn = document
+  .getElementById("deal-btn")
+  .addEventListener("click", dealCards);
+
+const rulesBtn = document
+  .getElementById("rules-btn")
+  .addEventListener("click", () => {
     const isHidden =
       rulesList.style.display === "none" || !rulesList.style.display;
     rulesList.style.display = isHidden ? "block" : "none";
     rulesList.style.opacity = isHidden ? "1" : "0";
   });
 
+// Start Game
 initGame();
