@@ -19,8 +19,6 @@ function quickSort(arr){
   
 // let's sort [4, 6, 3, 7, 1, 5]
 // 
-  // okay, so partition for qs([4, 3, 1]
-      // left would be [];
       // and right would be [4]
       // So qs([4, 3]) is [...qs[], 3, ...qs[4]]
         // isn't qs([]) []?
