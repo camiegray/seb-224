@@ -13,6 +13,7 @@
   "description": "",
   "dependencies": {
     "ejs": "^3.1.10",
+    "emmet": "^2.4.11",
     "express": "^4.21.2"
   },
   "type": "module",
