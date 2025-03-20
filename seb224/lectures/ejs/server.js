@@ -20,12 +20,16 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get("/:itemID", (req, res)=> {
-console.log(req);
+app.get("/:itemId", (req, res) => {
+    const index = req.params.itemId;
+    res.render("show.ejs", {
+        item: inventory[index]
 
-})
+    })
+});
 
 
 app.listen(3000, () => {
+    console.clear();
   console.log('Listening on port 3000');
 });
