@@ -38,6 +38,10 @@ function merge(arr1, arr2) {
     return result.concat(arr1, arr2);
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ad19bb85094e4f5f5fff9c1bf49a97178225aeb
 // let's sort [12,6,3,7,13,8]
 // first, middle is 3
 // left is [12, 6, 3]
@@ -52,7 +56,11 @@ function merge(arr1, arr2) {
         // so ms([12, 6, 3]) is merge(ms([12]), ms([6, 3]))
             // so now what's ms([12])?
                 // it's [12]
+<<<<<<< HEAD
             // what's ms([6, 3]
+=======
+            // what's ms([6, 3])?
+>>>>>>> 5ad19bb85094e4f5f5fff9c1bf49a97178225aeb
                 // middle is 1
                 // left is [6]
                 // sortedLeft is ms([6]) which is just [6]
