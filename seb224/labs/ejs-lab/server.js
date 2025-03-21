@@ -1,6 +1,7 @@
 import express from "express";
 const app = express();
 import logger from "morgan";
+import ejs from "ejs"
 app.use(logger("dev"))
 
 
@@ -60,9 +61,16 @@ const RESTAURANT = {
 
 
 app.get('/', (req, res) => {
-  res.send('Hello There!');
+  res.locals.restaurant = RESTAURANT;
+  res.render('home.ejs');
 });
-
+app.get("/menu", (req, res) => {
+  res.locals.menu = RESTAURANT.menu;
+  res.render("menu.ejs");
+});
+app.get("/menu/:category",(req,res) => {
+  res.render ("category.ejs")
+})
 app.listen(3000, ()=>{
     console.clear();
     console.log("Running on port 3000")
