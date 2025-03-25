@@ -5,15 +5,6 @@ import Customer from "./model/customer.js";
 
 const prompt = promptSync({ sigint: true });
 
-console.log('Starting CRM application...');
-const connect = async () => {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log("Connected to MongoDB");
-    await runQueries();
-    await mongoose.disconnect();
-    console.log("Disconnected from MongoDB");
-    process.exit();
-  };
 const displayMenu = () => {
   return prompt(`
 Welcome to the CRM
@@ -29,6 +20,7 @@ Number of action to run: `);
 };
 
 const createCustomer = async () => {
+  console.log("\nCreating a customer");
   const name = prompt("Enter customer name: ");
   const age = prompt("Enter customer age: ");
   const newCustomer = await Customer.create({ name, age: Number(age) });
@@ -36,24 +28,26 @@ const createCustomer = async () => {
 };
 
 const viewCustomers = async () => {
+  console.log("\nViewing customers");
   const customers = await Customer.find();
   if (customers.length === 0) {
     console.log("No customers found.");
   } else {
-    customers.forEach((customer) => {
+    customers.forEach(customer => {
       console.log(`id: ${customer._id} -- Name: ${customer.name}, Age: ${customer.age}`);
     });
   }
 };
 
 const updateCustomer = async () => {
+  console.log("\nUpdating a customer");
   const customers = await Customer.find();
   if (customers.length === 0) {
     console.log("No customers to update.");
     return;
   }
   console.log("\nBelow is a list of customers:");
-  customers.forEach((customer) => {
+  customers.forEach(customer => {
     console.log(`id: ${customer._id} -- Name: ${customer.name}, Age: ${customer.age}`);
   });
   const id = prompt("Copy and paste the id of the customer you would like to update here: ");
@@ -71,13 +65,14 @@ const updateCustomer = async () => {
 };
 
 const deleteCustomer = async () => {
+  console.log("\nDeleting a customer");
   const customers = await Customer.find();
   if (customers.length === 0) {
     console.log("No customers to delete.");
     return;
   }
   console.log("\nBelow is a list of customers:");
-  customers.forEach((customer) => {
+  customers.forEach(customer => {
     console.log(`id: ${customer._id} -- Name: ${customer.name}, Age: ${customer.age}`);
   });
   const id = prompt("Copy and paste the id of the customer you would like to delete here: ");
@@ -95,19 +90,15 @@ const runQueries = async () => {
     const choice = displayMenu();
     switch (choice.trim()) {
       case "1":
-        console.log("\nCreating a customer");
         await createCustomer();
         break;
       case "2":
-        console.log("\nViewing customers");
         await viewCustomers();
         break;
       case "3":
-        console.log("\nUpdating a customer");
         await updateCustomer();
         break;
       case "4":
-        console.log("\nDeleting a customer");
         await deleteCustomer();
         break;
       case "5":
@@ -123,6 +114,13 @@ const runQueries = async () => {
   }
 };
 
+const startApp = async () => {
+  await mongoose.connect(process.env.MONGODB_URI);
+  console.log("Connected to MongoDB");
+  await runQueries();
+  await mongoose.connection.close();
+  console.log("Disconnected from MongoDB");
+  process.exit();
+};
 
-
-connect();
+startApp();
