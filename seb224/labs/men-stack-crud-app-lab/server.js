@@ -4,7 +4,7 @@ import methodOverride from "method-override";
 import morgan from "morgan";
 import { configDotenv } from "dotenv";
 configDotenv();
-import Planet from "../models/planets.js";
+import Planet from "./models/planets.js";
 
 const app = express();
 
