@@ -4,12 +4,12 @@ import methodOverride from "method-override";
 import morgan from "morgan";
 import { configDotenv } from "dotenv";
 configDotenv();
-
+import Planet from "./models/planet.js";
 
 const app = express();
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"))
 app.use(morgan("dev"))
 app.set("view engine", "ejs");
@@ -22,9 +22,17 @@ app.get("/", (req, res) => {
 app.get("/planets", (req, res) => {
     res.render("planets/landing.ejs");
   });
+
+app.post("/planets", (req, res) => {
+    const { name, description, class: planetClass } = req.body;
+    Planet.create({ name, description, class: planetClass })
+    .then(() => res.redirect("/planets"))
+    .catch((err) => res.status(500).send(err));
+});
 app.get("/add", (req, res) => {
-    res.render("views/add");
+    res.render("add");
   });
+  
 app.get("/gas/:id", (req, res)=>{
 
 
