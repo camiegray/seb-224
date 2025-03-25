@@ -68,9 +68,19 @@ app.get("/menu", (req, res) => {
   res.locals.menu = RESTAURANT.menu;
   res.render("menu.ejs");
 });
-app.get("/menu/:category",(req,res) => {
-  res.render ("category.ejs")
-})
+app.get("/menu/:category", (req, res) => {
+  const categoryParam = req.params.category.toLowerCase();
+  // Filter the menu items based on the route parameter
+  const menuItems = RESTAURANT.menu.filter(item => item.category === categoryParam);
+
+  // Optionally, you might want to capitalize the category for display:
+  const displayCategory = categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1);
+
+  // Pass the filtered menu items and the display category to the view
+  res.render("category.ejs", { menuItems, category: displayCategory });
+});
+
+
 app.listen(3000, ()=>{
     console.clear();
     console.log("Running on port 3000")
