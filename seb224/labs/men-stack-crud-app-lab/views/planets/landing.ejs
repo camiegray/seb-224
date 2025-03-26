@@ -1,30 +1,17 @@
+<!-- views/planets/landing.ejs -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Planets Landing</title>
   </head>
   <body>
     <%- include('../partials/nav.ejs') %>
     <h1>Planets Landing</h1>
-    <p>Select a category or view all planets:</p>
+    <p>Select a category:</p>
     <ul>
       <li><a href="/planets/gas">Gas Giants</a></li>
       <li><a href="/planets/rocky">Rocky Planets</a></li>
-    </ul>
-    <h2>All Planets</h2>
-    <ul>
-      <% if (planets && planets.length) { %>
-        <% planets.forEach(planet => { %>
-          <li>
-            <a href="/planets/<%= planet._id %>">
-              <strong><%= planet.name %></strong>
-            </a> - <%= planet.description %>
-          </li>
-        <% }) %>
-      <% } else { %>
-        <li>No planets available.</li>
-      <% } %>
     </ul>
   </body>
 </html>

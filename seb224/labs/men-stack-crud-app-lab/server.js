@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
     res.render("home");
   });
   
-app.get("/planets", (req, res) => {
-    res.render("planets/landing.ejs");
+  app.get("/planets", (req, res) => {
+    res.render("planets/landing");
   });
-
+  
   app.post("/planets", (req, res) => {
     const { name, description, class: planetClass } = req.body;
     Planet.create({ name, description, class: planetClass })
@@ -93,6 +93,27 @@ app.put("/edit/:id", async (req, res) => {
     );
     if (!updatedPlanet) return res.status(404).send("Planet not found");
     res.redirect(`/planets/${updatedPlanet._id}`);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+// Show a specific gas planet
+app.get("/planets/gas/:id", async (req, res) => {
+  try {
+    const planet = await Planet.findById(req.params.id);
+    if (!planet) return res.status(404).send("Planet not found");
+    res.render("planets/show", { planet, category: "gas" });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+// Show a specific rocky planet
+app.get("/planets/rocky/:id", async (req, res) => {
+  try {
+    const planet = await Planet.findById(req.params.id);
+    if (!planet) return res.status(404).send("Planet not found");
+    res.render("planets/show", { planet, category: "rocky" });
   } catch (error) {
     res.status(500).send(error);
   }
