@@ -92,17 +92,21 @@ app.put("/edit/:id", async (req, res) => {
       { new: true, runValidators: true }
     );
     if (!updatedPlanet) return res.status(404).send("Planet not found");
-    res.redirect(`/planets/${updatedPlanet._id}`);
+
+    // Determine the proper category based on the planet's class
+    const category = updatedPlanet.class.toLowerCase().includes("gas") ? "gas" : "rocky";
+    res.redirect(`/planets/${category}/${updatedPlanet._id}`);
   } catch (error) {
     res.status(500).send(error);
   }
 });
+
 // Show a specific gas planet
 app.get("/planets/gas/:id", async (req, res) => {
   try {
     const planet = await Planet.findById(req.params.id);
     if (!planet) return res.status(404).send("Planet not found");
-    res.render("planets/show", { planet, category: "gas" });
+    res.render("show", { planet, category: "gas" });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -113,7 +117,7 @@ app.get("/planets/rocky/:id", async (req, res) => {
   try {
     const planet = await Planet.findById(req.params.id);
     if (!planet) return res.status(404).send("Planet not found");
-    res.render("planets/show", { planet, category: "rocky" });
+    res.render("show", { planet, category: "rocky" });
   } catch (error) {
     res.status(500).send(error);
   }
