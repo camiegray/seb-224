@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
     const { name, description, class: planetClass } = req.body;
     Planet.create({ name, description, class: planetClass })
       .then((newPlanet) => {
-        // Normalize the class value to lower case for consistency
+       
         const planetType = newPlanet.class.toLowerCase();
   
         if (planetType === "gas" || planetType === "gas giant") {
@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
         } else if (planetType === "rocky") {
           res.redirect("/planets/rocky");
         } else {
-          // Fallback redirect if the class doesn't match expected types
+      
           res.redirect("/planets");
         }
       })
@@ -51,15 +51,13 @@ app.get("/add", (req, res) => {
       .then((planets) => res.render("planets/gas", { planets }))
       .catch((err) => res.status(500).send(err));
   });
-  
-  // Route to display rocky planets
+
   app.get("/planets/rocky", (req, res) => {
     Planet.find({ class: /rocky/i })
       .then((planets) => res.render("planets/rocky", { planets }))
       .catch((err) => res.status(500).send(err));
   });
-// DELETE route: delete a planet by ID
-// DELETE: Remove the planet using its ID
+
 app.delete("/delete/:id", async (req, res) => {
   try {
     const deletedPlanet = await Planet.findByIdAndDelete(req.params.id);
@@ -70,8 +68,7 @@ app.delete("/delete/:id", async (req, res) => {
   }
 });
 
-// GET route: render the edit form with current planet data
-// GET: Render the edit form with current planet data
+
 app.get("/edit/:id", async (req, res) => {
   try {
     const planet = await Planet.findById(req.params.id);
@@ -82,7 +79,7 @@ app.get("/edit/:id", async (req, res) => {
   }
 });
 
-// PUT: Update the planet using its ID
+
 app.put("/edit/:id", async (req, res) => {
   const { name, description, class: planetClass } = req.body;
   try {
@@ -93,7 +90,7 @@ app.put("/edit/:id", async (req, res) => {
     );
     if (!updatedPlanet) return res.status(404).send("Planet not found");
 
-    // Determine the proper category based on the planet's class
+
     const category = updatedPlanet.class.toLowerCase().includes("gas") ? "gas" : "rocky";
     res.redirect(`/planets/${category}/${updatedPlanet._id}`);
   } catch (error) {
@@ -101,7 +98,6 @@ app.put("/edit/:id", async (req, res) => {
   }
 });
 
-// Show a specific gas planet
 app.get("/planets/gas/:id", async (req, res) => {
   try {
     const planet = await Planet.findById(req.params.id);

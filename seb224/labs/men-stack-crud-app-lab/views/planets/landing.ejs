@@ -6,12 +6,17 @@
     <title>Planets Landing</title>
   </head>
   <body>
-    <%- include('../partials/nav.ejs') %>
-    <h1>Planets Landing</h1>
-    <p>Select a category:</p>
-    <ul>
-      <li><a href="/planets/gas">Gas Giants</a></li>
-      <li><a href="/planets/rocky">Rocky Planets</a></li>
-    </ul>
+   <div> <%- include('../partials/nav.ejs') %> </div>
+    <h1>Planetary Bodies of Our Solar System</h1>
+    <p>In our solar system, planets fall into two distinct families: </p>
+    <div>
+      <p><a href="/planets/gas">Gas Giants</a> are composed primarily of hydrogen and helium. 
+        They lack a true, solid surface—instead, their visible layers are made up of swirling, dynamic gases and liquids. Their massive size and gravitational influence have allowed them to accumulate a rich system of moons, 
+        showcasing a dramatically different environment from their rocky cousins.</p></div>
+        <div>
+      <p><a href="/planets/rocky">Rocky Planets</a> consists of terrestrial, rocky worlds that are built from stone and metals. 
+        These bodies boast solid, tangible surfaces that invite exploration and even the possibility of standing on them. 
+        They reside closer to the Sun, are comparatively smaller, and typically host only a handful of moons.</p>
+      </div>
   </body>
 </html>

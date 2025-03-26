@@ -10,15 +10,13 @@
     <p><strong>Description:</strong> <%= planet.description %></p>
     <p><strong>Class:</strong> <%= planet.class %></p>
 
-    <!-- Link to edit the planet -->
     <a href="/edit/<%= planet._id %>">Edit Planet</a>
 
-    <!-- Form to delete the planet (using method override to send DELETE) -->
     <form action="/delete/<%= planet._id %>?_method=DELETE" method="POST" style="display:inline;">
       <button type="submit">Delete Planet</button>
     </form>
 
-    <!-- Back link based on the category -->
+
     <% if (category === "gas") { %>
       <a href="/planets/gas">Back to Gas Giants</a>
     <% } else if (category === "rocky") { %>
