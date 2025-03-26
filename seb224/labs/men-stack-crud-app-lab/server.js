@@ -10,53 +10,51 @@ const app = express();
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride("_method"))
-app.use(morgan("dev"))
+app.use(methodOverride("_method"));
+app.use(morgan("dev"));
 app.set("view engine", "ejs");
 
 // Routes
 app.get("/", (req, res) => {
-    res.render("home");
-  });
-  
-  app.get("/planets", (req, res) => {
-    res.render("planets/landing");
-  });
-  
-  app.post("/planets", (req, res) => {
-    const { name, description, class: planetClass } = req.body;
-    Planet.create({ name, description, class: planetClass })
-      .then((newPlanet) => {
-       
-        const planetType = newPlanet.class.toLowerCase();
-  
-        if (planetType === "gas" || planetType === "gas giant") {
-          res.redirect("/planets/gas");
-        } else if (planetType === "rocky") {
-          res.redirect("/planets/rocky");
-        } else {
-      
-          res.redirect("/planets");
-        }
-      })
-      .catch((err) => res.status(500).send(err));
-  });
-  
-app.get("/add", (req, res) => {
-    res.render("add");
-  });
-  
-  app.get("/planets/gas", (req, res) => {
-    Planet.find({ class: /gas/i }) // Using regex for case-insensitive matching
-      .then((planets) => res.render("planets/gas", { planets }))
-      .catch((err) => res.status(500).send(err));
-  });
+  res.render("home");
+});
 
-  app.get("/planets/rocky", (req, res) => {
-    Planet.find({ class: /rocky/i })
-      .then((planets) => res.render("planets/rocky", { planets }))
-      .catch((err) => res.status(500).send(err));
-  });
+app.get("/planets", (req, res) => {
+  res.render("planets/landing");
+});
+
+app.post("/planets", (req, res) => {
+  const { name, description, class: planetClass } = req.body;
+  Planet.create({ name, description, class: planetClass })
+    .then((newPlanet) => {
+      const planetType = newPlanet.class.toLowerCase();
+
+      if (planetType === "gas" || planetType === "gas giant") {
+        res.redirect("/planets/gas");
+      } else if (planetType === "rocky") {
+        res.redirect("/planets/rocky");
+      } else {
+        res.redirect("/planets");
+      }
+    })
+    .catch((err) => res.status(500).send(err));
+});
+
+app.get("/add", (req, res) => {
+  res.render("add");
+});
+
+app.get("/planets/gas", (req, res) => {
+  Planet.find({ class: /gas/i }) // Using regex for case-insensitive matching
+    .then((planets) => res.render("planets/gas", { planets }))
+    .catch((err) => res.status(500).send(err));
+});
+
+app.get("/planets/rocky", (req, res) => {
+  Planet.find({ class: /rocky/i })
+    .then((planets) => res.render("planets/rocky", { planets }))
+    .catch((err) => res.status(500).send(err));
+});
 
 app.delete("/delete/:id", async (req, res) => {
   try {
@@ -68,7 +66,6 @@ app.delete("/delete/:id", async (req, res) => {
   }
 });
 
-
 app.get("/edit/:id", async (req, res) => {
   try {
     const planet = await Planet.findById(req.params.id);
@@ -78,7 +75,6 @@ app.get("/edit/:id", async (req, res) => {
     res.status(500).send(error);
   }
 });
-
 
 app.put("/edit/:id", async (req, res) => {
   const { name, description, class: planetClass } = req.body;
@@ -90,8 +86,9 @@ app.put("/edit/:id", async (req, res) => {
     );
     if (!updatedPlanet) return res.status(404).send("Planet not found");
 
-
-    const category = updatedPlanet.class.toLowerCase().includes("gas") ? "gas" : "rocky";
+    const category = updatedPlanet.class.toLowerCase().includes("gas")
+      ? "gas"
+      : "rocky";
     res.redirect(`/planets/${category}/${updatedPlanet._id}`);
   } catch (error) {
     res.status(500).send(error);
@@ -121,4 +118,4 @@ app.get("/planets/rocky/:id", async (req, res) => {
 
 app.listen(3000, () => {
   console.log("App is running on port: 3000");
-})
+});

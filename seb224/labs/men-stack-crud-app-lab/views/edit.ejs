@@ -6,7 +6,7 @@
   </head>
   <body>
     <%- include('partials/nav.ejs') %>
-    <h1>Edit Planet: <%= planet.name %></h1>
+    <h1>Update an existing planet<%= planet.name %></h1>
     <form action="/edit/<%= planet._id %>?_method=PUT" method="POST">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" value="<%= planet.name %>" required />
@@ -17,7 +17,7 @@
       <label for="class">Class (Gas or Rocky):</label>
       <input type="text" name="class" id="class" value="<%= planet.class %>" required />
 
-      <button type="submit">Update an existing database entry</button>
+      <button type="submit">Update</button>
     </form>
   </body>
 </html>
