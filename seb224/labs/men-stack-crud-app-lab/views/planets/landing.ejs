@@ -1,18 +1,30 @@
-<!-- views/index.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Planets</title>
+    <title>Planets Landing</title>
   </head>
   <body>
-    <h1>Get ready to explore all of our planets</h1>
-<div>
-    <p>Check out the <a href="/planets/gas"><strong>Gas Giants</strong></a> that currently rotate all around us.</p>
-</div>
-<div> <p>Take a walk on the  <a href="/planets/rocky"><strong>Rocky Worlds</strong></a> that share our space with us.</p>
-</div>   
+    <%- include('../partials/nav.ejs') %>
+    <h1>Planets Landing</h1>
+    <p>Select a category or view all planets:</p>
+    <ul>
+      <li><a href="/planets/gas">Gas Giants</a></li>
+      <li><a href="/planets/rocky">Rocky Planets</a></li>
+    </ul>
+    <h2>All Planets</h2>
+    <ul>
+      <% if (planets && planets.length) { %>
+        <% planets.forEach(planet => { %>
+          <li>
+            <a href="/planets/<%= planet._id %>">
+              <strong><%= planet.name %></strong>
+            </a> - <%= planet.description %>
+          </li>
+        <% }) %>
+      <% } else { %>
+        <li>No planets available.</li>
+      <% } %>
+    </ul>
   </body>
 </html>

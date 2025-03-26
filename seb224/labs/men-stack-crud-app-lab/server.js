@@ -58,6 +58,46 @@ app.get("/add", (req, res) => {
       .then((planets) => res.render("planets/rocky", { planets }))
       .catch((err) => res.status(500).send(err));
   });
+// DELETE route: delete a planet by ID
+// DELETE: Remove the planet using its ID
+app.delete("/delete/:id", async (req, res) => {
+  try {
+    const deletedPlanet = await Planet.findByIdAndDelete(req.params.id);
+    if (!deletedPlanet) return res.status(404).send("Planet not found");
+    res.redirect("/planets");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+// GET route: render the edit form with current planet data
+// GET: Render the edit form with current planet data
+app.get("/edit/:id", async (req, res) => {
+  try {
+    const planet = await Planet.findById(req.params.id);
+    if (!planet) return res.status(404).send("Planet not found");
+    res.render("edit", { planet });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+// PUT: Update the planet using its ID
+app.put("/edit/:id", async (req, res) => {
+  const { name, description, class: planetClass } = req.body;
+  try {
+    const updatedPlanet = await Planet.findByIdAndUpdate(
+      req.params.id,
+      { name, description, class: planetClass },
+      { new: true, runValidators: true }
+    );
+    if (!updatedPlanet) return res.status(404).send("Planet not found");
+    res.redirect(`/planets/${updatedPlanet._id}`);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 app.listen(3000, () => {
   console.log("App is running on port: 3000");
 })

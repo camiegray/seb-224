@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= planet.name %> Details</title>
+  </head>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+    <h1><%= planet.name %> Details</h1>
+    <p><strong>Description:</strong> <%= planet.description %></p>
+    <p><strong>Class:</strong> <%= planet.class %></p>
+
+    <!-- Link to edit the planet -->
+    <a href="/edit/<%= planet._id %>">Edit Planet</a>
+
+    <!-- Form to delete the planet (uses method override to send DELETE) -->
+    <form action="/delete/<%= planet._id %>?_method=DELETE" method="POST" style="display:inline;">
+      <button type="submit">Delete Planet</button>
+    </form>
+
+    <br/><br/>
+    <a href="/planets">Back to Planets Landing</a>
+  </body>
+</html>

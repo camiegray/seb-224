@@ -2,18 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rocky Planets</title>
   </head>
   <body>
+    <%- include('../partials/nav.ejs') %>
     <h1>Rocky Planets</h1>
     <ul>
       <% planets.forEach(planet => { %>
         <li>
-          <strong><%= planet.name %></strong>: <%= planet.description %>
+          <a href="/planets/<%= planet._id %>">
+            <strong><%= planet.name %></strong>
+          </a>: <%= planet.description %>
         </li>
       <% }) %>
     </ul>
-    <a href="/planets">Back to Landing Page</a>
+    <a href="/planets">Back to Landing</a>
   </body>
 </html>
