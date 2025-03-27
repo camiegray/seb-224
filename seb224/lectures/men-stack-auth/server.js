@@ -19,7 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
-app.use("/", router);
+app.use("/auth", router);
+
+
 app.get("/", async (req, res) => {
     res.render("index.ejs")
 
