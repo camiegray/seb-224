@@ -52,3 +52,8 @@ while color != "quit":
         print("Stop")
     else:
         print("Bogus!")
+        
+        time_of_day = 9
+morning = True if time_of_day < 12 else False
+print(morning)
+# prints: True
